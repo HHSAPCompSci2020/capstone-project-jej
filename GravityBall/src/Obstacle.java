@@ -1,28 +1,28 @@
 import processing.core.PApplet;
+
 public class Obstacle {
-	private int x;
-	private int y;	
+	
+	private double x, y;
+	
 	public Obstacle()
 	{
 		x = 0;
 		y = 0;
 	}
-	public Obstacle(int x, int y)
+	public Obstacle(double x, double y)
 	{
 		this.x = x;
 		this.y = y;
 	}
 	
 	
-	public int getX()
+	public double getX()
 	{
 		return x;
 	}
 	
-	public int getY()
+	public double getY()
 	{
 		return y;
 	}
-	
-
 }

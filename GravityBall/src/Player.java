@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 import processing.core.PApplet;
 /**
  * The player
@@ -7,6 +9,7 @@ import processing.core.PApplet;
 public class Player {
 	private double xPos, yPos;
 	private double xVel, yVel;
+	public static double RADIUS = 50;
 	
 	public Player() {
 		xPos = 0;
@@ -44,8 +47,28 @@ public class Player {
 		setVelRectangular(v * Math.cos(theta), v * Math.sin(theta));
 	}
 	
+	public double getXVel() {
+		return xVel;
+	}
+	
+	public double getYVel() {
+		return yVel;
+	}
+	
 	public void accelerate (double ax, double ay) {
 		xVel += ax;
 		yVel += ay;
+	}
+	
+	
+	public void act(ArrayList<Obstacle> obstacles) {
+		
+		
+		xPos += xVel;
+		yPos += yVel;
+	}
+	
+	public void draw(PApplet surface) {
+		surface.circle((float)xPos, (float)yPos, (float)RADIUS);
 	}
 }

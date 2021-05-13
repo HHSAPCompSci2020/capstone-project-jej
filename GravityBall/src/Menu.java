@@ -8,6 +8,7 @@ public class Menu extends Screen {
 	private DrawingSurface surface;
 	private Rectangle start;
 	private Rectangle howToPlay;
+	
 	public Menu(DrawingSurface surface) {
 		super(800,600);
 		this.surface = surface;
