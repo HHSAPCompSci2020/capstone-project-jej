@@ -24,7 +24,7 @@ public class Level {
 			start = new Point(200, 200);
 			end = new EndPoint(500, 500);
 			//add things that extend from obstacles
-			obstacles.add(new Obstacle());
+			//obstacles.add(new Obstacle());
 		}
 		else if(level == 2) {
 			
