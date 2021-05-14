@@ -34,7 +34,7 @@ public abstract class Obstacle {
 		return hitbox;
 	}
 	
-	public void draw() {
+	public void draw(PApplet Surface) {
 		
 	}
 }

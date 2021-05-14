@@ -24,7 +24,8 @@ public class Level {
 			start = new Point(200, 200);
 			end = new EndPoint(500, 500);
 			//add things that extend from obstacles
-			//obstacles.add(new Obstacle());
+			obstacles.add(new Wall(150, 225, 100, 25, 0));
+			obstacles.add(new Wall(400, 400, 200, 25, 0));
 		}
 		else if(level == 2) {
 			
@@ -38,7 +39,7 @@ public class Level {
 		//no need to draw the start lol
 		end.draw(surface);
 		for(Obstacle o: obstacles) {
-			o.draw();
+			o.draw(surface);
 		}
 	}
 	
