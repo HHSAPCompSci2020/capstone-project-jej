@@ -9,21 +9,26 @@ import java.util.ArrayList;
 public class Level {
 	private ArrayList<Obstacle> obstacles;
 	private int level;
-	Point start;
-	Point end;
+	private StartPoint start;
+	private EndPoint end;
+	private DrawingSurface surface;
 	//the int passed in is the level number
-	public Level(int level) {
+	public Level(int level, DrawingSurface surface) {
 		this.level = level;
+		this.surface = surface;
 		setup();
 	}
 	
 	public void setup() {
 		obstacles = new ArrayList<Obstacle>();
 		if(level == 1) {
-			start = new Point(100, 100);
-			end = new Point(500, 500);
+			start = new StartPoint(200, 200, surface);
+			end = new EndPoint(500, 500, surface);
 			//add obstacles
 			obstacles.add(new Obstacle());
+		}
+		else if(level == 2) {
+			
 		}
 		else {
 			System.out.println("ERROR: Level " + level + " wasn't found or doesn't exist");
@@ -31,6 +36,8 @@ public class Level {
 	}
 	
 	public void draw() {
+		start.draw();
+		end.draw();
 		for(Obstacle o: obstacles) {
 			o.draw();
 		}
