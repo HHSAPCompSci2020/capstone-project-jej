@@ -2,7 +2,7 @@
 import java.awt.Point;
 import java.awt.Rectangle;
 /**
- * @author APCS Demos 2021, modified for own use
+ * @author APCS Demos 2021, modified for own use by Jensen
  */
 public class Menu extends Screen {
 	private DrawingSurface surface;

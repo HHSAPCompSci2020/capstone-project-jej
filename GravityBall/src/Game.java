@@ -7,7 +7,7 @@ public class Game extends Screen {
 		super(800,600);
 		this.surface = surface;
 		//
-		level = new Level(1);
+		level = new Level(1, surface);
 	}
 	
 	public void draw() {
