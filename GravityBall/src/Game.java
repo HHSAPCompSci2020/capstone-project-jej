@@ -2,9 +2,12 @@ import java.awt.event.KeyEvent;
 
 public class Game extends Screen {
 	private DrawingSurface surface;
+	private Level level;
 	public Game(DrawingSurface surface) {
 		super(800,600);
 		this.surface = surface;
+		//
+		level = new Level(1);
 	}
 	
 	public void draw() {
@@ -17,6 +20,9 @@ public class Game extends Screen {
 		surface.fill(0);
 		surface.text("press space to exit", 100, 100);
 		surface.popStyle();
+		
+		level.draw();
+		
 
 		if (surface.isPressed(KeyEvent.VK_SPACE)) {
 			surface.switchScreen(ScreenSwitcher.MENU);

@@ -25,4 +25,8 @@ public class Obstacle {
 	{
 		return y;
 	}
+	
+	public void draw() {
+		
+	}
 }
