@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import processing.core.PApplet;
 /**
  * The player
- * 
+ * @author Eddie
  *
  */
 public class Player {
