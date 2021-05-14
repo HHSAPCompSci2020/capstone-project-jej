@@ -224,6 +224,17 @@ public class Line {
 	}
 	
 	/**
+	 * Returns the angle of the Line on the interval -pi/2 < x <= pi/2
+	 * @return Angle of tilt of this Line
+	 */
+	public double getAngle() {
+		if(x1 - x2 == 0) {
+			return Math.PI/2;
+		}
+		return Math.atan((y1 - y2)/(x1 - x2));
+	}
+	
+	/**
 	 * Translates this Line by x units to the right and y units downwards.
 	 * @param x Amount of units shifted to the right
 	 * @param y Amount of units shifted downwards
