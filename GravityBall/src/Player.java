@@ -69,6 +69,7 @@ public class Player {
 	}
 	
 	public void draw(PApplet surface) {
+		surface.fill(150);
 		surface.circle((float)xPos, (float)yPos, (float)RADIUS);
 	}
 }

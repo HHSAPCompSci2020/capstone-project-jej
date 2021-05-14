@@ -1,13 +1,16 @@
 import java.awt.event.KeyEvent;
+import java.awt.Point;
 
 public class Game extends Screen {
 	private DrawingSurface surface;
 	private Level level;
+	private Player player;
 	public Game(DrawingSurface surface) {
 		super(800,600);
 		this.surface = surface;
-		//
 		level = new Level(1, surface);
+		Point start = level.getStartPoint();
+		player = new Player(start.x, start.y);
 	}
 	
 	public void draw() {
@@ -21,7 +24,8 @@ public class Game extends Screen {
 		surface.text("press space to exit", 100, 100);
 		surface.popStyle();
 		
-		level.draw();
+		player.draw(surface);
+		level.draw(surface);
 		
 
 		if (surface.isPressed(KeyEvent.VK_SPACE)) {

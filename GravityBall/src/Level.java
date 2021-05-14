@@ -1,5 +1,6 @@
 import java.awt.Point;
 import java.util.ArrayList;
+import processing.core.PApplet;
 
 /**
  * The level class
@@ -9,22 +10,20 @@ import java.util.ArrayList;
 public class Level {
 	private ArrayList<Obstacle> obstacles;
 	private int level;
-	private StartPoint start;
+	private Point start;
 	private EndPoint end;
-	private DrawingSurface surface;
 	//the int passed in is the level number
 	public Level(int level, DrawingSurface surface) {
 		this.level = level;
-		this.surface = surface;
 		setup();
 	}
 	
-	public void setup() {
+	private void setup() {
 		obstacles = new ArrayList<Obstacle>();
 		if(level == 1) {
-			start = new StartPoint(200, 200, surface);
-			end = new EndPoint(500, 500, surface);
-			//add obstacles
+			start = new Point(200, 200);
+			end = new EndPoint(500, 500);
+			//add things that extend from obstacles
 			obstacles.add(new Obstacle());
 		}
 		else if(level == 2) {
@@ -35,11 +34,15 @@ public class Level {
 		}
 	}
 	
-	public void draw() {
-		start.draw();
-		end.draw();
+	public void draw(PApplet surface) {
+		//no need to draw the start lol
+		end.draw(surface);
 		for(Obstacle o: obstacles) {
 			o.draw();
 		}
+	}
+	
+	public Point getStartPoint() {
+		return start;
 	}
 }

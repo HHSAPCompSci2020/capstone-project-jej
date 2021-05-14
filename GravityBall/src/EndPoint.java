@@ -1,4 +1,4 @@
-import java.awt.Point;
+import processing.core.PApplet;
 /**
  * 
  * @author jensen
@@ -6,13 +6,11 @@ import java.awt.Point;
  */
 public class EndPoint {
 	private int x, y;
-	private DrawingSurface surface;
-	public EndPoint(int x, int y, DrawingSurface surface) {
+	public EndPoint(int x, int y) {
 		this.x = x;
 		this.y = y;
-		this.surface = surface;
 	}
-	public void draw() {
+	public void draw(PApplet surface) {
 		surface.fill(255, 0, 0);
 		surface.circle(x, y, 50);
 	}
