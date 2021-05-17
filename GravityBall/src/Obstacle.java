@@ -11,12 +11,14 @@ public abstract class Obstacle {
 	{
 		x = 0;
 		y = 0;
+		hitbox = new ArrayList<Line>();
 	}
 	
 	public Obstacle(double x, double y)
 	{
 		this.x = x;
 		this.y = y;
+		hitbox = new ArrayList<Line>();
 	}
 	
 	

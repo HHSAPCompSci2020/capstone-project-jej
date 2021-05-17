@@ -25,7 +25,7 @@ public class Level {
 			end = new EndPoint(500, 500);
 			//add things that extend from obstacles
 			obstacles.add(new Wall(150, 225, 100, 25, 0));
-			obstacles.add(new Wall(400, 400, 200, 25, 0));
+			obstacles.add(new Wall(400, 400, 200, 25, Math.PI/4));
 		}
 		else if(level == 2) {
 			
@@ -45,5 +45,9 @@ public class Level {
 	
 	public Point getStartPoint() {
 		return start;
+	}
+	
+	public ArrayList<Obstacle> getObstacles(){
+		return obstacles;
 	}
 }
