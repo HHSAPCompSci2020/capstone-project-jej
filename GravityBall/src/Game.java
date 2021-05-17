@@ -5,6 +5,7 @@ public class Game extends Screen {
 	private DrawingSurface surface;
 	private Level level;
 	private Player player;
+	private final double GRAVSTR = 0.1; //gravity strength
 	private enum Gravity {
 		UP, DOWN, LEFT, RIGHT;
 	}
@@ -31,6 +32,19 @@ public class Game extends Screen {
 		surface.popStyle();
 		
 		player.act(level.getObstacles());
+		
+		if(g == Gravity.LEFT) {
+			player.accelerate(-GRAVSTR, 0);
+		}
+		else if(g == Gravity.RIGHT) {
+			player.accelerate(GRAVSTR, 0);
+		}
+		else if(g == Gravity.DOWN) {
+			player.accelerate(0, GRAVSTR);
+		}
+		else if(g == Gravity.UP) {
+			player.accelerate(0, -GRAVSTR);
+		}
 		player.draw(surface);
 		level.draw(surface);
 		
@@ -40,15 +54,19 @@ public class Game extends Screen {
 		}
 		if(surface.isPressed(KeyEvent.VK_UP)) {
 			g = Gravity.UP;
+			player.setVelRectangular(0, -GRAVSTR);
 		}
 		if(surface.isPressed(KeyEvent.VK_DOWN)) {
 			g = Gravity.DOWN;
+			player.setVelRectangular(0, GRAVSTR);
 		}
 		if(surface.isPressed(KeyEvent.VK_LEFT)) {
 			g = Gravity.LEFT;
+			player.setVelRectangular(-GRAVSTR, 0);
 		}
 		if(surface.isPressed(KeyEvent.VK_RIGHT)) {
 			g = Gravity.RIGHT;
+			player.setVelRectangular(GRAVSTR, 0);
 		}
 	}
 	

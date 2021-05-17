@@ -17,7 +17,7 @@ public class Wall extends Obstacle {
 		this.cx = (int)(getX() + width/2);
 		this.cy = (int)(getY() + height/2);
 		
-		Point topleft = new Point(x, y);
+		Point topleft = calculatePoint(x, y, angle);
 		Point topright = calculatePoint(x + width, y, angle);
 		Point bottomleft = calculatePoint(x, y + height, angle);
 		Point bottomright = calculatePoint(x + width, y + height, angle);
@@ -58,5 +58,14 @@ public class Wall extends Obstacle {
 		surface.rotate((float)angle);
 		surface.rect(0-width/2, 0-height/2, width, height);
 		surface.popMatrix();
+		
+		
+		//testing purposes
+		for(Line l: getHitbox()) {
+			surface.push();
+			surface.stroke(250, 0, 0);
+			l.draw(surface);
+			surface.pop();
+		}
 	}
 }
