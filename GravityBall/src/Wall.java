@@ -22,10 +22,10 @@ public class Wall extends Obstacle {
 		Point bottomleft = calculatePoint(x, y + height, angle);
 		Point bottomright = calculatePoint(x + width, y + height, angle);
 		
-		this.getHitbox().add(new Line(topleft.x, topleft.y, topright.x, topright.y));
-		this.getHitbox().add(new Line(topright.x, topright.y, bottomright.x, bottomright.y));
-		this.getHitbox().add(new Line(bottomright.x, bottomright.y, bottomleft.x, bottomleft.y));
-		this.getHitbox().add(new Line(bottomleft.x, bottomleft.y, topleft.x, topleft.y));
+		hitbox.add(new Line(topleft.x, topleft.y, topright.x, topright.y));
+		hitbox.add(new Line(topright.x, topright.y, bottomright.x, bottomright.y));
+		hitbox.add(new Line(bottomright.x, bottomright.y, bottomleft.x, bottomleft.y));
+		hitbox.add(new Line(bottomleft.x, bottomleft.y, topleft.x, topleft.y));
 		
 	}
 	/**

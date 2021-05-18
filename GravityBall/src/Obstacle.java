@@ -5,7 +5,7 @@ import processing.core.PApplet;
 public abstract class Obstacle {
 	
 	private double x, y;
-	private ArrayList<Line> hitbox;
+	protected ArrayList<Line> hitbox;
 	
 	public Obstacle()
 	{
