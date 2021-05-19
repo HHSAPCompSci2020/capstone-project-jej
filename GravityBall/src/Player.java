@@ -9,7 +9,7 @@ import processing.core.PApplet;
 public class Player {
 	private double xPos, yPos;
 	private double xVel, yVel;
-	public static double RADIUS = 50;
+	public static double RADIUS = 10;
 	
 	public Player() {
 		xPos = 0;
@@ -104,7 +104,7 @@ public class Player {
 				double xInter = Double.parseDouble(l.getIntersectionX(model));
 				double yInter = Double.parseDouble(l.getIntersectionY(model));
 				double dist = Math.sqrt(Math.pow(xInter - xStart, 2) + Math.pow(yInter - yStart, 2));
-				if(dist < minLength && dist > Line.MARGIN_OF_ERROR) {
+				if(dist < minLength) {
 					minLength = dist;
 					minAngle = angle;
 					id = i + "," + j;
@@ -133,6 +133,6 @@ public class Player {
 	
 	public void draw(PApplet surface) {
 		surface.fill(150);
-		surface.circle((float)xPos, (float)yPos, (float)RADIUS);
+		surface.circle((float)xPos, (float)yPos, (float)RADIUS * 2);
 	}
 }

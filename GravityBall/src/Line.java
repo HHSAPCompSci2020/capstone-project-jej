@@ -75,7 +75,7 @@ public class Line {
 	public String getIntersectionX(Line other) {
 		
 		double changeX1 = x1 - x2;
-		double changeY1 = x2 - y2;
+		double changeY1 = y1 - y2;
 		
 		double changeX2 = other.getX1() - other.getX2();
 		double changeY2 = other.getY1() - other.getY2();
@@ -120,8 +120,15 @@ public class Line {
 		}
 		// Solves for x given two lines in terms of y = mx + b (y = slope * x + yIntercept)
 		double x = Double.parseDouble(xString);
-		double slope = (y1 - y2)/(x1 - x2);
-		double yIntercept = y1 - slope * x1;
+
+		double slope, yIntercept;
+		if(Math.abs(x1 - x2) <= MARGIN_OF_ERROR) {
+			slope = (other.getY1() - other.getY2())/(other.getX1() - other.getX2());
+			yIntercept = other.getY1() - slope * other.getX1();
+		} else {
+			slope = (y1 - y2)/(x1 - x2);
+			yIntercept = y1 - slope * x1;
+		}
 		
 		double y = slope * x + yIntercept;
 		return y + "";

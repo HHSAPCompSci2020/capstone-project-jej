@@ -46,6 +46,9 @@ public class Game extends Screen {
 			player.accelerate(0, -GRAVSTR);
 		}
 		player.draw(surface);
+		Line test = new Line(player.getX(), player.getY(), player.getX() + player.getXVel(), 
+				player.getY() + player.getYVel());
+		test.draw(surface);
 		level.draw(surface);
 		
 

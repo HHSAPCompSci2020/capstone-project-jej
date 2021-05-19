@@ -26,6 +26,7 @@ public class Level {
 			//add things that extend from obstacles
 			obstacles.add(new Wall(150, 225, 100, 25, 0));
 			obstacles.add(new Wall(400, 400, 200, 25, (float)Math.PI/4));
+			obstacles.add(new Wall(100, 400, 200, 200, (float)Math.PI/4));
 		}
 		else if(level == 2) {
 			
