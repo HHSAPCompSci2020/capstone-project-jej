@@ -42,7 +42,7 @@ public class Menu extends Screen {
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (start.contains(p))
-			surface.switchScreen(ScreenSwitcher.GAME);
+			surface.switchScreen(ScreenSwitcher.LVLSELECT);
 		else if(howToPlay.contains(p))
 			surface.switchScreen(ScreenSwitcher.INSTRUCTION);
 	}

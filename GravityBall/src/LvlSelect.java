@@ -12,15 +12,15 @@ public class LvlSelect extends Screen
 	public LvlSelect(DrawingSurface surface) {
 		super(800,600);
 		this.surface = surface;
-		back = new Rectangle(600,0,200,200);
-		lvl1 = new Rectangle(100,100,50,50);
-		lvl2 = new Rectangle(200,100,50,50);
-		lvl3 = new Rectangle(300,100,50,50);
-		lvl4 = new Rectangle(400,100,50,50);
-		lvl5 = new Rectangle(500,100,50,50);
-		lvl6 = new Rectangle(600,100,50,50);
-		lvl7 = new Rectangle(200,300,50,50);
-		lvl8 = new Rectangle(300,300,50,50);
+		back = new Rectangle(0,550,100,50);
+		lvl1 = new Rectangle(100,200,50,50);
+		lvl2 = new Rectangle(200,200,50,50);
+		lvl3 = new Rectangle(300,200,50,50);
+		lvl4 = new Rectangle(400,200,50,50);
+		lvl5 = new Rectangle(500,200,50,50);
+		lvl6 = new Rectangle(600,200,50,50);
+		lvl7 = new Rectangle(300,300,50,50);
+		lvl8 = new Rectangle(400,300,50,50);
 	}
 	
 	public void draw() {
@@ -30,7 +30,7 @@ public class LvlSelect extends Screen
 		surface.fill(255);
 		surface.rect(back.x, back.y, back.width, back.height, 10, 10, 10, 10);
 		surface.fill(0);
-		surface.text("Select Your Level",50,50,30,100);
+		surface.text("Select Your Level",50,50,100,30);
 		String str = "back";
 		float w = surface.textWidth(str);
 		surface.text(str, back.x+back.width/2-w/2, back.y+back.height/2);
@@ -92,23 +92,23 @@ public class LvlSelect extends Screen
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (back.contains(p))
-			surface.switchScreen(ScreenSwitcher.GAME);
+			surface.switchScreen(ScreenSwitcher.MENU);
 		else if(lvl1.contains(p))
-			surface.switchScreen(ScreenSwitcher.INSTRUCTION);
+			surface.switchScreen(ScreenSwitcher.GAME);
 		else if(lvl2.contains(p))
-			surface.switchScreen(ScreenSwitcher.INSTRUCTION);
+			surface.switchScreen(ScreenSwitcher.GAME);
 		else if(lvl3.contains(p))
-			surface.switchScreen(ScreenSwitcher.INSTRUCTION);
+			surface.switchScreen(ScreenSwitcher.GAME);
 		else if(lvl4.contains(p))
-			surface.switchScreen(ScreenSwitcher.INSTRUCTION);
+			surface.switchScreen(ScreenSwitcher.GAME);
 		else if(lvl5.contains(p))
-			surface.switchScreen(ScreenSwitcher.INSTRUCTION);
+			surface.switchScreen(ScreenSwitcher.GAME);
 		else if(lvl6.contains(p))
-			surface.switchScreen(ScreenSwitcher.INSTRUCTION);
+			surface.switchScreen(ScreenSwitcher.GAME);
 		else if(lvl7.contains(p))
-			surface.switchScreen(ScreenSwitcher.INSTRUCTION);
+			surface.switchScreen(ScreenSwitcher.GAME);
 		else if(lvl8.contains(p))
-			surface.switchScreen(ScreenSwitcher.INSTRUCTION);
+			surface.switchScreen(ScreenSwitcher.GAME);
 		
 	}
 }
