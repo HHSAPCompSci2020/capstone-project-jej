@@ -8,13 +8,14 @@ import javax.xml.stream.events.StartDocument;
  * @author Siyi Ji
  *
  */
-public class Instruction extends Screen {
+public class Pause extends Screen {
 	private DrawingSurface surface;
 	private Rectangle back;
-	public Instruction(DrawingSurface surface) {
+	public Pause(DrawingSurface surface) {
 		super(800,600);
 		this.surface = surface;
 		back = new Rectangle(0,550,100,50);
+		
 	}
 	
 	public void draw() {
@@ -25,10 +26,9 @@ public class Instruction extends Screen {
 		surface.noFill();
 		
 		surface.fill(0);
-		surface.textSize(15);
+		surface.textSize(20);
 		surface.textAlign(surface.CENTER);
-		surface.text("You are a lost soul, and you are trying to get to the spirit world.\n In order to do this you must collect spirit orbs.\r\n" + 
-				"Use keys to change gravity, most likely WASD. Get to the finish area.",  400, 200);
+		surface.text("Paused",  400, 200);
 		surface.fill(255);
 		surface.rect(back.x, back.y, back.width, back.height, 10, 10, 10, 10);
 		surface.fill(0);
@@ -45,6 +45,6 @@ public class Instruction extends Screen {
 	{
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (back.contains(p))
-			surface.switchScreen(ScreenSwitcher.MENU);
+			surface.switchScreen(ScreenSwitcher.GAME);
 	}
 }

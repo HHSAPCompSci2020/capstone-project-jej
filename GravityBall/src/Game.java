@@ -28,7 +28,7 @@ public class Game extends Screen {
 		surface.noFill();
 		
 		surface.fill(0);
-		surface.text("press space to exit", 100, 100);
+		surface.text("press space to exit, p to pause", 100, 100);
 		surface.popStyle();
 		
 		player.act(level.getObstacles());
@@ -51,6 +51,10 @@ public class Game extends Screen {
 
 		if (surface.isPressed(KeyEvent.VK_SPACE)) {
 			surface.switchScreen(ScreenSwitcher.MENU);
+		}
+		if(surface.isPressed(KeyEvent.VK_P))
+		{
+			surface.switchScreen(ScreenSwitcher.PAUSE);
 		}
 		if(surface.isPressed(KeyEvent.VK_UP)) {
 			g = Gravity.UP;
