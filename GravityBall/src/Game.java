@@ -31,6 +31,7 @@ public class Game extends Screen {
 		surface.text("press space to exit, p to pause", 100, 100);
 		surface.popStyle();
 		
+		
 		player.act(level.getObstacles());
 		
 		if(g == Gravity.LEFT) {
@@ -45,6 +46,7 @@ public class Game extends Screen {
 		else if(g == Gravity.UP) {
 			player.accelerate(0, -GRAVSTR);
 		}
+		
 		player.draw(surface);
 		Line test = new Line(player.getX(), player.getY(), player.getX() + player.getXVel(), 
 				player.getY() + player.getYVel());

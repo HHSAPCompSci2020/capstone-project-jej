@@ -59,6 +59,22 @@ public class Player {
 		return Math.sqrt(xVel * xVel + yVel * yVel);
 	}
 	
+	public double getVelAngle() {
+		if(xVel == 0) {
+			if(yVel >= 0) {
+				return Math.PI/2;
+			} else {
+				return -Math.PI/2;
+			}
+		}
+		double angle = Math.atan(yVel/xVel);
+		if(xVel < 0) {
+			angle += Math.PI;
+		}
+		System.out.println(angle);
+		return angle;
+	}
+	
 	public void accelerate (double ax, double ay) {
 		xVel += ax;
 		yVel += ay;
@@ -68,7 +84,6 @@ public class Player {
 	public void act(ArrayList<Obstacle> obstacles) {
 		boolean check = true;
 		String id = "";
-		double minAngle = 0;
 		double minLength = Double.MAX_VALUE;
 		for(int i = 0; i < obstacles.size(); i++) {
 			for(int j = 0; j < obstacles.get(i).getHitbox().size(); j++) {
@@ -106,7 +121,6 @@ public class Player {
 				double dist = Math.sqrt(Math.pow(xInter - xStart, 2) + Math.pow(yInter - yStart, 2));
 				if(dist < minLength) {
 					minLength = dist;
-					minAngle = angle;
 					id = i + "," + j;
 					check = false;
 				}
@@ -118,14 +132,17 @@ public class Player {
 			xPos += xVel;
 			yPos += yVel;
 		} else {
-			xPos += minLength * Math.cos(minAngle);
-			yPos += minLength * Math.sin(minAngle);
+			xPos += minLength * Math.cos(getVelAngle());
+			yPos += minLength * Math.sin(getVelAngle());
 			double velMag = getVelMagnitude();
 			
 			double lineAngle = obstacles.get(Integer.parseInt(id.split(",")[0])).getHitbox().get(Integer.parseInt(id.split(",")[1])).getAngle();
 			
-			double newAngle = lineAngle - (minAngle - lineAngle);
+			double newAngle = 2 * lineAngle - getVelAngle();
+			System.out.println(newAngle);
 			
+			xPos +=  Math.cos(newAngle);
+			yPos +=  Math.sin(newAngle);
 			xVel = velMag * Math.cos(newAngle);
 			yVel = velMag * Math.sin(newAngle);
 		}
