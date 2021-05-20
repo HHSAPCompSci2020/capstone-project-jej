@@ -1,5 +1,6 @@
 import java.awt.Point;
 import java.awt.Rectangle;
+import processing.core.PImage;
 /**
  * 
  * @author Siyi Ji
@@ -9,6 +10,7 @@ public class LvlSelect extends Screen
 {
 	private DrawingSurface surface;
 	private Rectangle back,lvl1,lvl2,lvl3,lvl4,lvl5,lvl6,lvl7, lvl8;
+	private PImage background;
 	public LvlSelect(DrawingSurface surface) {
 		super(800,600);
 		this.surface = surface;
@@ -22,11 +24,15 @@ public class LvlSelect extends Screen
 		lvl7 = new Rectangle(300,300,50,50);
 		lvl8 = new Rectangle(400,300,50,50);
 	}
-	
+	public void setup()
+	{
+		background = surface.loadImage("nature3.jpg");
+	}
 	public void draw() {
 		surface.pushStyle();
 		
 		surface.background(255,255,255);
+		surface.image(background, 0 ,0,800,600);
 		surface.fill(255);
 		surface.rect(back.x, back.y, back.width, back.height, 10, 10, 10, 10);
 		surface.fill(0);
