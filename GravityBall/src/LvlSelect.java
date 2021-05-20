@@ -36,7 +36,8 @@ public class LvlSelect extends Screen
 		surface.fill(255);
 		surface.rect(back.x, back.y, back.width, back.height, 10, 10, 10, 10);
 		surface.fill(0);
-		surface.text("Select Your Level",50,50,100,30);
+		surface.textSize(20);
+		surface.text("Select Your Level",50,50);
 		String str = "back";
 		float w = surface.textWidth(str);
 		surface.text(str, back.x+back.width/2-w/2, back.y+back.height/2);
