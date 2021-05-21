@@ -139,7 +139,15 @@ public class Player {
 					
 					double dist = Math.sqrt(Math.pow(xPos - x, 2) + Math.pow(yPos - y, 2));
 					if(dist < RADIUS) {
+						Line connector = new Line(x, y, xPos, yPos);
+						double newAngle = 2 * (connector.getAngle() + Math.PI/2) - getVelAngle();
+						double velMag = getVelMagnitude();
 						
+						xPos -= xVel;
+						yPos -= yVel;
+						
+						xVel = velMag * Math.cos(newAngle);
+						yVel = velMag * Math.sin(newAngle);
 					}
 				}
 			}
