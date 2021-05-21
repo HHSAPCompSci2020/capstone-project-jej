@@ -34,7 +34,7 @@ public class Instruction extends Screen {
 		surface.textSize(15);
 		surface.textAlign(surface.CENTER);
 		surface.text("You are a lost soul, and you are trying to get to the spirit world.\n In order to do this you must collect spirit orbs.\r\n" + 
-				"Use ARROWKEYS to change gravity. Get to the finish area.",  400, 200);
+				"Use ARROWKEYS to change gravity. Get to the red finish area to win",  400, 200);
 		surface.fill(255);
 		surface.rect(back.x, back.y, back.width, back.height, 10, 10, 10, 10);
 		surface.fill(0);
