@@ -1,4 +1,5 @@
 import java.awt.event.KeyEvent;
+import java.util.ArrayList;
 import java.awt.Point;
 
 public class Game extends Screen {
@@ -42,28 +43,75 @@ public class Game extends Screen {
 		double distance = Math.sqrt((px-ex)*(px-ex) + (py-ey)*(py-ey));
 		if(distance <= end.RADIUS*2) {
 			surface.switchScreen(ScreenSwitcher.ENDSCREEN);
+			surface.switchScreen(5);
+			player.setVelRectangular(0, 0);
 		}
 		
 		
 		player.accelerate(player.getXVel()*-0.015,player.getYVel()*-0.015);
 		
 		
-		if(g == Gravity.LEFT) {
-			player.accelerate(-GRAVSTR, 0);
-			changeBackground(surface, 255, 255, 0);			
+		int netX = 0;
+		int netY = 0;
+		
+		ArrayList<Integer> keys = surface.getKeys();
+		
+		if(keys.contains(37)) {
+			netX--;
 		}
-		else if(g == Gravity.RIGHT) {
-			player.accelerate(GRAVSTR, 0);
-			changeBackground(surface, 0, 255, 0);
+		if(keys.contains(38)) {
+			netY--;
 		}
-		else if(g == Gravity.DOWN) {
-			player.accelerate(0, GRAVSTR);
-			changeBackground(surface, 0, 0, 255);
+		if(keys.contains(39)) {
+			netX++;
 		}
-		else if(g == Gravity.UP) {
-			player.accelerate(0, -GRAVSTR);
-			changeBackground(surface, 255, 0, 0);
+		if(keys.contains(40)) {
+			netY++;
 		}
+		
+		if(Math.abs(netX) + Math.abs(netY) == 2) {
+			player.accelerate(GRAVSTR * netX * Math.sqrt(0.5), GRAVSTR * netY * Math.sqrt(0.5));
+			if(netX == -1 && netY == -1) {
+				changeBackground(surface, 255, 127, 0);
+			} else if(netX == 1 && netY == -1) {
+				changeBackground(surface, 127, 127, 0);
+			} else if(netX == 1 && netY == 1) {
+				changeBackground(surface, 0, 127, 127);
+			} else if(netX == -1 && netY == 1) {
+				changeBackground(surface, 127, 127, 127);
+			}
+			
+		} else if(Math.abs(netX) + Math.abs(netY) == 1){
+			player.accelerate(GRAVSTR * netX, GRAVSTR * netY);
+			if(netX == -1) { // Directly left
+				changeBackground(surface, 255, 255, 0);
+			} else if(netX == 1) { // Directly right
+				changeBackground(surface, 0, 255, 0);
+			} else if(netY == -1) { // Directly up
+				changeBackground(surface, 255, 0, 0);
+			} else if(netY == 1) { // Directly down
+				changeBackground(surface, 0, 0, 255);
+			}
+		} else {
+			changeBackground(surface, 255, 255, 255);
+		}
+		
+//		if(g == Gravity.LEFT) {
+//			player.accelerate(-GRAVSTR, 0);
+//			changeBackground(surface, 255, 255, 0);			
+//		}
+//		else if(g == Gravity.RIGHT) {
+//			player.accelerate(GRAVSTR, 0);
+//			changeBackground(surface, 0, 255, 0);
+//		}
+//		else if(g == Gravity.DOWN) {
+//			player.accelerate(0, GRAVSTR);
+//			changeBackground(surface, 0, 0, 255);
+//		}
+//		else if(g == Gravity.UP) {
+//			player.accelerate(0, -GRAVSTR);
+//			changeBackground(surface, 255, 0, 0);
+//		}
 		
 		player.draw(surface);
 		Line test = new Line(player.getX(), player.getY(), player.getX() + player.getXVel(), 
