@@ -61,11 +61,11 @@ public class Wall extends Obstacle {
 		
 		
 		//testing purposes
-		for(Line l: getHitbox()) {
+		/*for(Line l: getHitbox()) {
 			surface.push();
 			surface.stroke(250, 0, 0);
 			l.draw(surface);
 			surface.pop();
-		}
+		}*/
 	}
 }

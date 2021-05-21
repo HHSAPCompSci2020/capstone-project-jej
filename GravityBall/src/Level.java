@@ -48,6 +48,10 @@ public class Level {
 		return start;
 	}
 	
+	public EndPoint getEnd() {
+		return end;
+	}
+	
 	public ArrayList<Obstacle> getObstacles(){
 		return obstacles;
 	}
