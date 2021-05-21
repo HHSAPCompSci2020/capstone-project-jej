@@ -41,7 +41,7 @@ public class Game extends Screen {
 		double ey = end.getY();
 		double distance = Math.sqrt((px-ex)*(px-ex) + (py-ey)*(py-ey));
 		if(distance <= end.RADIUS*2) {
-			surface.switchScreen(5);
+			surface.switchScreen(ScreenSwitcher.ENDSCREEN);
 		}
 		
 		

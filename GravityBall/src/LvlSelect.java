@@ -100,22 +100,38 @@ public class LvlSelect extends Screen
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (back.contains(p))
 			surface.switchScreen(ScreenSwitcher.MENU);
-		else if(lvl1.contains(p))
+		else if(lvl1.contains(p)) {
+			surface.changeLevel(1);
 			surface.switchScreen(ScreenSwitcher.GAME);
-		else if(lvl2.contains(p))
+		}
+		else if(lvl2.contains(p)) {
+			surface.changeLevel(2);
 			surface.switchScreen(ScreenSwitcher.GAME);
-		else if(lvl3.contains(p))
+		}
+		else if(lvl3.contains(p)) {
+			surface.changeLevel(3);
 			surface.switchScreen(ScreenSwitcher.GAME);
-		else if(lvl4.contains(p))
+		}
+		else if(lvl4.contains(p)) {
+			surface.changeLevel(4);
 			surface.switchScreen(ScreenSwitcher.GAME);
-		else if(lvl5.contains(p))
+		}
+		else if(lvl5.contains(p)) {
+			surface.changeLevel(5);
 			surface.switchScreen(ScreenSwitcher.GAME);
-		else if(lvl6.contains(p))
+		}
+		else if(lvl6.contains(p)) {
+			surface.changeLevel(6);
 			surface.switchScreen(ScreenSwitcher.GAME);
-		else if(lvl7.contains(p))
+		}
+		else if(lvl7.contains(p)) {
+			surface.changeLevel(7);
 			surface.switchScreen(ScreenSwitcher.GAME);
-		else if(lvl8.contains(p))
+		}
+		else if(lvl8.contains(p)) {
+			surface.changeLevel(8);
 			surface.switchScreen(ScreenSwitcher.GAME);
+		}
 		
 	}
 }

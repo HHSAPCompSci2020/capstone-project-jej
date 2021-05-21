@@ -24,6 +24,7 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	private Screen activeScreen;
 	private ArrayList<Screen> screens;
 
+	private Game game;
 	
 	public DrawingSurface() {
 		
@@ -36,8 +37,8 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		Screen screen1 = new Menu(this);
 		screens.add(screen1);
 		
-		Game screen2 = new Game(this, 1);
-		screens.add(screen2);
+		game = new Game(this, 1);
+		screens.add(game);
 		
 		Instruction screen3 = new Instruction(this);
 		screens.add(screen3);
@@ -119,6 +120,12 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 	@Override
 	public void switchScreen(int i) {
 		activeScreen = screens.get(i);
+	}
+	
+	public void changeLevel(int level) {
+		screens.remove(game);
+		game = new Game(this, level);
+		screens.add(1, game);
 	}
 
 }

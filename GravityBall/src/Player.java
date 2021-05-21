@@ -9,7 +9,7 @@ import processing.core.PApplet;
 public class Player {
 	private double xPos, yPos;
 	private double xVel, yVel;
-	public static double RADIUS = 25;
+	public static double RADIUS = 20;
 	
 	public Player() {
 		xPos = 0;
@@ -159,7 +159,7 @@ public class Player {
 			double lineAngle = obstacles.get(Integer.parseInt(id.split(",")[0])).getHitbox().get(Integer.parseInt(id.split(",")[1])).getAngle();
 			
 			double newAngle = 2 * lineAngle - getVelAngle();
-			System.out.println(newAngle);
+			//System.out.println(newAngle);
 			
 			xPos +=  Math.cos(newAngle);
 			yPos +=  Math.sin(newAngle);
