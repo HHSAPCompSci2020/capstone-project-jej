@@ -9,7 +9,7 @@ import processing.core.PApplet;
 public class Player {
 	private double xPos, yPos;
 	private double xVel, yVel;
-	public static double RADIUS = 10;
+	public static double RADIUS = 25;
 	
 	public Player() {
 		xPos = 0;
@@ -131,6 +131,18 @@ public class Player {
 		if(check) {
 			xPos += xVel;
 			yPos += yVel;
+			
+			for(int i = 0; i < obstacles.size(); i++) {
+				for(int j = 0; j < obstacles.get(i).getHitbox().size(); j++) {
+					double x = obstacles.get(i).getHitbox().get(j).getX1();
+					double y = obstacles.get(i).getHitbox().get(j).getY1();
+					
+					double dist = Math.sqrt(Math.pow(xPos - x, 2) + Math.pow(yPos - y, 2));
+					if(dist < RADIUS) {
+						
+					}
+				}
+			}
 		} else {
 			xPos += minLength * Math.cos(getVelAngle());
 			yPos += minLength * Math.sin(getVelAngle());
