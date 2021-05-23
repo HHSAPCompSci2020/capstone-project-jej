@@ -2,8 +2,10 @@ import java.util.ArrayList;
 
 import processing.core.PApplet;
 /**
- * The player
- * @author Eddie
+ * The Player can be represented as a circle with position and velocity vectors.
+ * In Player's act method, collision detection is ran with an ArrayList of all
+ * obstacles present in the current level, which is given by the Game class.
+ * @author Edward
  *
  */
 public class Player {
@@ -12,6 +14,10 @@ public class Player {
 	private double xVel, yVel;
 	public static double RADIUS = 20;
 	
+	/**
+	 * Initializes a Player with all values (position, initial position, and velocity) being
+	 * set to 0
+	 */
 	public Player() {
 		xPos = 0;
 		yPos = 0;
@@ -21,6 +27,11 @@ public class Player {
 		yVel = 0;
 	}
 	
+	/**
+	 * Initializes a Player with the starting position of (x, y) and velocities of 0
+	 * @param x The x-coordinate of Player's position
+	 * @param y The y-coordinate of Player's position
+	 */
 	public Player(double x, double y) {
 		xPos = x;
 		yPos = y;
@@ -30,53 +41,105 @@ public class Player {
 		yVel = 0;
 	}
 	
+	/**
+	 * Sets the Player's coordinates to (x, y)
+	 * @param x The x-coordinate of Player's position
+	 * @param y The y-coordinate of Player's position
+	 */
 	public void setCoords(double x, double y) {
 		xPos = x;
 		yPos = y;
 	}
 	
+	/**
+	 * Returns the x-coordinate of the Player
+	 * @return The x-coordinate of the Player's position
+	 */
 	public double getX() {
 		return xPos;
 	}
 	
+	/**
+	 * Returns the y-coordinate of the Player
+	 * @return The y-coordinate of the Player's position
+	 */
 	public double getY() {
 		return yPos;
 	}
 	
+	/**
+	 * Sets the initial coordinates of the Player
+	 * @param x The x-coordinate of the initial position of the Player
+	 * @param y The y-coordinate of the initial position of the Player
+	 */
 	public void setInitCoords(double x, double y) {
 		initX = x;
 		initY = y;
 	}
 	
+	/**
+	 * Returns the x-coordinate of the Player's initial position
+	 * @return The x-coordinate of the Player's initial position
+	 */
 	public double getInitX() {
 		return initX;
 	}
 	
+	/**
+	 * Returns the x-coordinate of the Player's initial position
+	 * @return The x-coordinate of the Player's initial position
+	 */
 	public double getInitY() {
 		return initY;
 	}
 	
+	/**
+	 * Sets the velocity vector of the Player to (xv, yv)
+	 * @param xv The horizontal component of the velocity vector
+	 * @param yv The vertical component of the velocity vector
+	 */
 	public void setVelRectangular(double xv, double yv) {
 		xVel = xv;
 		yVel = yv;
 	}
 	
+	/**
+	 * Sets the velocity vector of the Player to have a magnitude of v and an angle of theta
+	 * @param v The magnitude of velocity
+	 * @param theta The direction of velocity
+	 */
 	public void setVelPolar(double v, double theta) {
 		setVelRectangular(v * Math.cos(theta), v * Math.sin(theta));
 	}
 	
+	/**
+	 * Returns the horizontal component of the Player's velocity
+	 * @return The horizontal component of the Player's velocity
+	 */
 	public double getXVel() {
 		return xVel;
 	}
 	
+	/**
+	 * Returns the vertical component of the Player's velocity
+	 * @return The vertical component of the Player's velocity
+	 */
 	public double getYVel() {
 		return yVel;
 	}
 	
+	/**
+	 * Returns the magnitude of the Player's velocity
+	 * @return The magnitude of the Player's velocity
+	 */
 	public double getVelMagnitude() {
 		return Math.sqrt(xVel * xVel + yVel * yVel);
 	}
 	
+	/**
+	 * Returns the direction of the Player's velocity
+	 * @return The angle of the Player's velocity
+	 */
 	public double getVelAngle() {
 		if(xVel == 0) {
 			if(yVel >= 0) {
@@ -93,12 +156,20 @@ public class Player {
 		return angle;
 	}
 	
+	/**
+	 * Accelerates the Player horizontally by ax and vertically by ay
+	 * @param ax The horizontal acceleration of the Player
+	 * @param ay The vertical acceleration of the Player
+	 */
 	public void accelerate (double ax, double ay) {
 		xVel += ax;
 		yVel += ay;
 	}
 	
-	
+	/**
+	 * Checks for the collision of the obstacles given, then moves to its next position
+	 * @param obstacles The ArrayList containing all the obstacles in a given level
+	 */
 	public void act(ArrayList<Obstacle> obstacles) {
 		boolean check = true;
 		String id = "";
@@ -195,13 +266,23 @@ public class Player {
 		}
 	}
 	
+	/**
+	 * Sets the position of the Player to the set initial position and velocity to 0
+	 */
 	public void death() {
 		this.setCoords(initX, initY);
 		this.setVelRectangular(0, 0);
 	}
 	
+	/**
+	 * Draws this Player on the given PApplet
+	 * @param surface The PApplet to be drawn on
+	 * @post This Player will be drawn onto the PApplet
+	 */
 	public void draw(PApplet surface) {
+		surface.push();
 		surface.fill(150);
 		surface.circle((float)xPos, (float)yPos, (float)RADIUS * 2);
+		surface.pop();
 	}
 }

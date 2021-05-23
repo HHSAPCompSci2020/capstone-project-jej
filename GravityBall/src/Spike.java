@@ -1,7 +1,9 @@
 import processing.core.PApplet;
 import java.awt.Point;
 /**
- * Basis copied from Wall class, created by Jensen
+ * The Spike class is an obstacle which kills a Player when it's hitbox intercepts with the 
+ * Player's hitbox.
+ * Basis copied from Wall class, created by Jensen.
  * @author Edward
  *
  */
