@@ -31,7 +31,7 @@ public class Game extends Screen {
 		surface.noFill();
 		
 		surface.fill(0);
-		surface.text("press space to exit, p to pause", 100, 100);
+		surface.text("press space to exit, p to pause", 0, 25);
 		surface.popStyle();
 		
 		player.act(level.getObstacles());

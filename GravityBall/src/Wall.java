@@ -2,7 +2,7 @@ import processing.core.PApplet;
 import java.awt.Point;
 /**
  * Wall class, can also be platform
- * @author jensen
+ * @author Jensen
  *
  */
 public class Wall extends Obstacle {
