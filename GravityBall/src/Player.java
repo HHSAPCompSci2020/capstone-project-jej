@@ -8,12 +8,15 @@ import processing.core.PApplet;
  */
 public class Player {
 	private double xPos, yPos;
+	private double initX, initY;
 	private double xVel, yVel;
 	public static double RADIUS = 20;
 	
 	public Player() {
 		xPos = 0;
 		yPos = 0;
+		initX = 0;
+		initY = 0;
 		xVel = 0;
 		yVel = 0;
 	}
@@ -21,6 +24,8 @@ public class Player {
 	public Player(double x, double y) {
 		xPos = x;
 		yPos = y;
+		initX = x;
+		initY = y;
 		xVel = 0;
 		yVel = 0;
 	}
@@ -36,6 +41,19 @@ public class Player {
 	
 	public double getY() {
 		return yPos;
+	}
+	
+	public void setInitCoords(double x, double y) {
+		initX = x;
+		initY = y;
+	}
+	
+	public double getInitX() {
+		return initX;
+	}
+	
+	public double getInitY() {
+		return initY;
 	}
 	
 	public void setVelRectangular(double xv, double yv) {
@@ -71,7 +89,7 @@ public class Player {
 		if(xVel < 0) {
 			angle += Math.PI;
 		}
-		System.out.println(angle);
+//		System.out.println(angle);
 		return angle;
 	}
 	
@@ -139,6 +157,10 @@ public class Player {
 					
 					double dist = Math.sqrt(Math.pow(xPos - x, 2) + Math.pow(yPos - y, 2));
 					if(dist < RADIUS) {
+						if(obstacles.get(i).getID().equals("spike")) {
+							death();
+							continue;
+						}
 						Line connector = new Line(x, y, xPos, yPos);
 						double newAngle = 2 * (connector.getAngle() + Math.PI/2) - getVelAngle();
 						double velMag = getVelMagnitude();
@@ -152,20 +174,30 @@ public class Player {
 				}
 			}
 		} else {
-			xPos += minLength * Math.cos(getVelAngle());
-			yPos += minLength * Math.sin(getVelAngle());
-			double velMag = getVelMagnitude();
+			String obstacleID = obstacles.get(Integer.parseInt(id.split(",")[0])).getID();
+			if(obstacleID.equals("wall")){
+				xPos += minLength * Math.cos(getVelAngle());
+				yPos += minLength * Math.sin(getVelAngle());
+				double velMag = getVelMagnitude();
+				
+				double lineAngle = obstacles.get(Integer.parseInt(id.split(",")[0])).getHitbox().get(Integer.parseInt(id.split(",")[1])).getAngle();
 			
-			double lineAngle = obstacles.get(Integer.parseInt(id.split(",")[0])).getHitbox().get(Integer.parseInt(id.split(",")[1])).getAngle();
-			
-			double newAngle = 2 * lineAngle - getVelAngle();
-			//System.out.println(newAngle);
-			
-			xPos +=  Math.cos(newAngle);
-			yPos +=  Math.sin(newAngle);
-			xVel = velMag * Math.cos(newAngle);
-			yVel = velMag * Math.sin(newAngle);
+				double newAngle = 2 * lineAngle - getVelAngle();
+				//System.out.println(newAngle);
+				
+				xPos +=  Math.cos(newAngle);
+				yPos +=  Math.sin(newAngle);
+				xVel = velMag * Math.cos(newAngle);
+				yVel = velMag * Math.sin(newAngle);
+			} else if(obstacleID.equals("spike")) {
+				death();
+			}
 		}
+	}
+	
+	public void death() {
+		this.setCoords(initX, initY);
+		this.setVelRectangular(0, 0);
 	}
 	
 	public void draw(PApplet surface) {

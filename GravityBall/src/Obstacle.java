@@ -6,6 +6,7 @@ public abstract class Obstacle {
 	
 	private double x, y;
 	protected ArrayList<Line> hitbox;
+	protected String id;
 	
 	public Obstacle()
 	{
@@ -34,6 +35,10 @@ public abstract class Obstacle {
 	
 	public ArrayList<Line> getHitbox(){
 		return hitbox;
+	}
+	
+	public String getID() {
+		return id;
 	}
 	
 	public void draw(PApplet Surface) {

@@ -27,6 +27,7 @@ public class Level {
 			obstacles.add(new Wall(150, 225, 100, 25, 0));
 			obstacles.add(new Wall(400, 400, 200, 25, (float)Math.PI/6));
 			obstacles.add(new Wall(100, 400, 200, 200, (float)Math.PI/4));
+			obstacles.add(new Spike(400, 200, 5, Math.PI/4));
 		}
 		else if(level == 2) {
 			

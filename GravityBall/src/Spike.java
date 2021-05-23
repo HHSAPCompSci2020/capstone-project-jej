@@ -1,22 +1,26 @@
 import processing.core.PApplet;
 import java.awt.Point;
 /**
- * Wall class, can also be platform
- * @author jensen
+ * Basis copied from Wall class, created by Jensen
+ * @author Edward
  *
  */
-public class Wall extends Obstacle {
-	private int width, height;
+public class Spike extends Obstacle {
+	private int numOfSpikes;
 	private int cx, cy; //center x and center y
 	private double angle; //angle in radians
-	public Wall(int x, int y, int width, int height, double angle) {
+	
+	public static final int SPIKE_HEIGHT = 10;
+	public static final int SPIKE_WIDTH = 10;
+	public Spike(int x, int y, int n, double angle) {
 		super(x, y);
-		id = "wall";
-		this.width = width;
-		this.height = height;
+		id = "spike";
+		this.numOfSpikes = n;
 		this.angle = angle;
-		this.cx = (int)(getX() + width/2);
-		this.cy = (int)(getY() + height/2);
+		int width = SPIKE_WIDTH * numOfSpikes;
+		int height = SPIKE_HEIGHT;
+		this.cx = (int)(getX() + width/2.0);
+		this.cy = (int)(getY() + height/2.0);
 		
 		Point topleft = calculatePoint(x, y, angle);
 		Point topright = calculatePoint(x + width, y, angle);
@@ -57,16 +61,22 @@ public class Wall extends Obstacle {
 		surface.pushMatrix();
 		surface.translate(cx, cy);
 		surface.rotate((float)angle);
-		surface.rect(0-width/2, 0-height/2, width, height);
+		surface.fill(150);
+		int width = SPIKE_WIDTH * numOfSpikes;
+		for(int i = 0; i < numOfSpikes; i++) {
+			surface.triangle(i * SPIKE_WIDTH - width/2, -SPIKE_HEIGHT/2, 
+					(float)((i + 0.5) * SPIKE_WIDTH - width/2), SPIKE_HEIGHT/2, 
+					(i + 1) * SPIKE_WIDTH - width/2, -SPIKE_HEIGHT/2);
+		}
 		surface.popMatrix();
 		
 		
 		//testing purposes
-		/*for(Line l: getHitbox()) {
+		for(Line l: getHitbox()) {
 			surface.push();
 			surface.stroke(250, 0, 0);
 			l.draw(surface);
 			surface.pop();
-		}*/
+		}
 	}
 }

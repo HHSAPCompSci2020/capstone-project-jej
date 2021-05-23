@@ -41,6 +41,8 @@ public class Game extends Screen {
 		double ex = end.getX();
 		double ey = end.getY();
 		double distance = Math.sqrt((px-ex)*(px-ex) + (py-ey)*(py-ey));
+		
+		
 		if(distance <= end.RADIUS*2) {
 			surface.switchScreen(ScreenSwitcher.ENDSCREEN);
 			surface.switchScreen(5);
@@ -114,9 +116,6 @@ public class Game extends Screen {
 //		}
 		
 		player.draw(surface);
-		Line test = new Line(player.getX(), player.getY(), player.getX() + player.getXVel(), 
-				player.getY() + player.getYVel());
-		test.draw(surface);
 		level.draw(surface);
 		
 
@@ -146,6 +145,7 @@ public class Game extends Screen {
 		surface.rect(0, 0, 800, 600);
 		surface.pop();
 	}
+	
 	public Gravity getGravity() {
 		return g;
 	}
