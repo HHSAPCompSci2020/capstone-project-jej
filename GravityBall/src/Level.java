@@ -54,6 +54,31 @@ public class Level {
 			obstacles.add(new Spike(215, 75, 40, 0));
 			obstacles.add(new Spike(500, 290, 12, Math.PI));
 		}
+		else if(level == 3) {
+			start = new Point(500, 500);
+			end = new EndPoint(500, 100);
+			
+			obstacles.add(new Wall(50, 50, 600, 25, 0));
+			obstacles.add(new Wall(-200, 310, 500, 30, -Math.PI/2));
+			obstacles.add(new Wall(65, 550, 555, 25, 0));
+			obstacles.add(new Wall(385, 310, 500, 30, -Math.PI/2));
+
+			obstacles.add(new Wall(450, 400, 100, 25, 0));
+			obstacles.add(new Wall(425, 400, 25, 150, 0));
+			obstacles.add(new Spike(545, 408, 2, -Math.PI/2));
+			
+			obstacles.add(new Wall(400, 300, 220, 25, 0));
+			obstacles.add(new Spike(425, 390, 12, Math.PI));
+			obstacles.add(new Spike(400, 325, 22, 0));
+			
+			obstacles.add(new Wall(220, 370, 200, 25, -Math.PI/4));
+			obstacles.add(new Spike(70, 540, 35, Math.PI));
+			obstacles.add(new Wall(215, 160, 25, 300, 0));
+			
+			obstacles.add(new Spike(70, 75, 40, 0));
+			obstacles.add(new Spike(218, 150, 2, Math.PI));
+			
+		}
 		else {
 			System.out.println("ERROR: Level " + level + " wasn't found or doesn't exist");
 		}
