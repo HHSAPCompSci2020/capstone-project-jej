@@ -5,6 +5,8 @@ import java.awt.Point;
 public class Game extends Screen {
 	private DrawingSurface surface;
 	private Level level;
+	private static final int MAX_LEVEL = 8;
+	private int levelNumber;
 	private Player player;
 	private EndPoint end;
 	private final double GRAVSTR = 0.1; //gravity strength
@@ -17,6 +19,7 @@ public class Game extends Screen {
 		super(800,600);
 		this.surface = surface;
 		level = new Level(l, surface);
+		levelNumber = l;
 		Point start = level.getStartPoint();
 		player = new Player(start.x, start.y);
 		g = Gravity.DOWN;
@@ -44,9 +47,16 @@ public class Game extends Screen {
 		
 		
 		if(distance <= end.RADIUS*2) {
-			surface.switchScreen(ScreenSwitcher.ENDSCREEN);
-			surface.switchScreen(5);
-			player.setVelRectangular(0, 0);
+//			surface.switchScreen(ScreenSwitcher.ENDSCREEN);
+//			surface.switchScreen(5);
+			if(levelNumber == MAX_LEVEL) {
+				surface.switchScreen(ScreenSwitcher.ENDSCREEN);
+				surface.switchScreen(5);
+			} else {
+				level = new Level(++levelNumber, surface);
+				end = level.getEnd();
+				player = new Player(level.getStartPoint().x, level.getStartPoint().y);
+			}
 		}
 		
 		
