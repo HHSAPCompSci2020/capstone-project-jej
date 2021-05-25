@@ -18,7 +18,7 @@ public class Level {
 		setup();
 	}
 	
-	private void setup() {
+	private void setup() { // By Jensen
 		obstacles = new ArrayList<Obstacle>();
 		if(level == 1) {
 			start = new Point(200, 200);
@@ -38,7 +38,7 @@ public class Level {
 			obstacles.add(new Wall(495, 500, 100, 25, -Math.PI/4));
 			obstacles.add(new Spike(320, 530, 15, Math.PI));
 		}
-		else if(level == 2) {
+		else if(level == 2) { // By Jensen
 			start = new Point(100, 100);
 			end = new EndPoint(500, 500);
 			
@@ -54,7 +54,7 @@ public class Level {
 			obstacles.add(new Spike(215, 75, 40, 0));
 			obstacles.add(new Spike(500, 290, 12, Math.PI));
 		}
-		else if(level == 3) {
+		else if(level == 3) { // By Jensen
 			start = new Point(500, 500);
 			end = new EndPoint(500, 100);
 			
@@ -79,11 +79,39 @@ public class Level {
 			obstacles.add(new Spike(218, 150, 2, Math.PI));
 			
 		}
-		else if(level == 4) {
-			start = new Point(500, 500);
-			end = new EndPoint(500, 100);
+		else if(level == 4) { // By Edward
+			start = new Point(100, 300);
+			end = new EndPoint(550, 450);
 			
-			obstacles.add(new Booster(100, 100, 200, 200));
+			obstacles.add(new Booster(300, 200, 200, 200));
+			
+			obstacles.add(new Wall(25, 225, 325, 25, 0));
+			obstacles.add(new Wall(25, 250, 25, 100, 0));
+			obstacles.add(new Wall(25, 350, 325, 25, 0));
+			
+			obstacles.add(new Wall(450, 150, 200, 100, 0));
+			obstacles.add(new Wall(750, 50, 25, 300, 0));
+			obstacles.add(new Wall(450, 350, 325, 50, 0));
+			obstacles.add(new Wall(325, 25, 450, 25, 0));
+			obstacles.add(new Wall(325, 50, 25, 175, 0));
+			
+			obstacles.add(new Wall(325, 375, 25, 175, 0));
+			obstacles.add(new Wall(325, 550, 300, 25, 0));
+			obstacles.add(new Wall(600, 400, 25, 150, 0));
+			
+			obstacles.add(new Spike(300, 250, 5, 0));
+			obstacles.add(new Spike(450, 250, 5, 0));
+			
+			obstacles.add(new Spike(330, 220, 5, -Math.PI/2));
+			obstacles.add(new Spike(330, 370, 5, -Math.PI/2));
+			
+			obstacles.add(new Spike(300, 340, 5, Math.PI));
+			obstacles.add(new Spike(450, 340, 5, Math.PI));
+			
+			obstacles.add(new Spike(420, 220, 5, Math.PI/2));
+			obstacles.add(new Spike(420, 370, 5, Math.PI/2));
+			
+			obstacles.add(new Spike(350, 540, 25, Math.PI));
 		}
 		else {
 			System.out.println("ERROR: Level " + level + " wasn't found or doesn't exist");

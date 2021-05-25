@@ -1,5 +1,5 @@
 import processing.core.PApplet;
-import java.awt.Point;
+
 /**
  * The Boost class is represented by a slightly transparent green
  * rectangle, which accelerates the Player in the direction that

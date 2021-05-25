@@ -58,6 +58,7 @@ public class Wall extends Obstacle {
 		
 		surface.pushMatrix();
 		surface.translate(cx, cy);
+		surface.stroke(0);
 		surface.rotate((float)angle);
 		surface.rect((float)(0-width/2), (float)(0-height/2), (float)(width), (float)(height));
 		surface.popMatrix();
