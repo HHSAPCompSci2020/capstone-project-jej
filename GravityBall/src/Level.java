@@ -136,7 +136,7 @@ public class Level {
 			obstacles.add(new Wall(475, 50, 25, 300, 0));
 			obstacles.add(new Wall(350, 50, 25, 225, 0));
 			obstacles.add(new Wall(350, 25, 150, 25, 0));
-		} else if(level == 7)
+		} else if(level == 6)
 		{
 			start = new Point(100, 450);
 			end =  new EndPoint(100,150);
@@ -158,7 +158,7 @@ public class Level {
 			
 		
 		}
-		else if(level == 6) {
+		else if(level == 7) {
 			start = new Point(100, 110);
 			end = new EndPoint(100, 500);
 			

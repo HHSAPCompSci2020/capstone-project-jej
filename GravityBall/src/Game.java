@@ -1,5 +1,6 @@
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
+import java.awt.Color;
 import java.awt.Point;
 import java.awt.Rectangle;
 /**
@@ -12,7 +13,7 @@ import java.awt.Rectangle;
 public class Game extends Screen {
 	private DrawingSurface surface;
 	private Level level;
-	private static final int MAX_LEVEL = 8;
+	private static final int MAX_LEVEL = 7;
 	private int levelNumber;
 	private Player player;
 	private Rectangle pause;
@@ -104,32 +105,44 @@ public class Game extends Screen {
 			netY++;
 		}
 		
+		Color bg = new Color(0);
+		int dir = -2;
 		if(Math.abs(netX) + Math.abs(netY) == 2) {
 			player.accelerate(GRAVSTR * netX * Math.sqrt(0.5), GRAVSTR * netY * Math.sqrt(0.5));
-			if(netX == -1 && netY == -1) {
-				changeBackground(surface, 255, 127, 0);
-			} else if(netX == 1 && netY == -1) {
-				changeBackground(surface, 127, 127, 0);
-			} else if(netX == 1 && netY == 1) {
-				changeBackground(surface, 0, 127, 127);
-			} else if(netX == -1 && netY == 1) {
-				changeBackground(surface, 127, 127, 127);
+			if(netX == -1 && netY == -1) { // Up left
+				bg = new Color(255, 127, 0);
+				dir = 7;
+			} else if(netX == 1 && netY == -1) { // Up right
+				bg = new Color(127, 127, 0);
+				dir = 1;
+			} else if(netX == 1 && netY == 1) { // Down right
+				bg = new Color(0, 127, 127);
+				dir = 3;
+			} else if(netX == -1 && netY == 1) { // Down left
+				bg = new Color(127, 127, 127);
+				dir = 5;
 			}
 			
 		} else if(Math.abs(netX) + Math.abs(netY) == 1){
 			player.accelerate(GRAVSTR * netX, GRAVSTR * netY);
 			if(netX == -1) { // Directly left
-				changeBackground(surface, 255, 255, 0);
+				bg = new Color(255, 255, 0);
+				dir = 6;
 			} else if(netX == 1) { // Directly right
-				changeBackground(surface, 0, 255, 0);
+				bg = new Color(0, 255, 0);
+				dir = 2;
 			} else if(netY == -1) { // Directly up
-				changeBackground(surface, 255, 0, 0);
+				bg = new Color(255, 0, 0);
+				dir = 0;
 			} else if(netY == 1) { // Directly down
-				changeBackground(surface, 0, 0, 255);
+				bg = new Color(0, 0, 255);
+				dir = 4;
 			}
 		} else {
-			changeBackground(surface, 255, 255, 255);
+			bg = new Color(255, 255, 255);
+			dir = -1;
 		}
+		
 		
 //		if(g == Gravity.LEFT) {
 //			player.accelerate(-GRAVSTR, 0);
@@ -150,6 +163,7 @@ public class Game extends Screen {
 		
 		player.draw(surface);
 		level.draw(surface);
+		changeBackground(surface, bg, dir);
 		
 
 		if (surface.isPressed(KeyEvent.VK_SPACE)) {
@@ -180,10 +194,28 @@ public class Game extends Screen {
 	 * @param g Amount of green
 	 * @param b Amount of blue
 	 */
-	public void changeBackground(DrawingSurface surface, int r, int g, int b) {
+	public void changeBackground(DrawingSurface surface, Color c, int dir) {
 		surface.push();
-		surface.fill(r, g, b, 128);
-		surface.rect(0, 0, 800, 600);
+		surface.fill(c.getRed(), c.getGreen(), c.getBlue(), 128);
+		surface.stroke(0, 0, 0, 0);
+		surface.translate(300, 200);
+		if(dir == 0) {
+			surface.quad(400, 300, 350, 350, 400, 225, 450, 350);
+		} else if(dir == 1) {
+			surface.quad(400, 300, 350, 300, 450, 250, 400, 350);
+		} else if(dir == 2) {
+			surface.quad(400, 300, 350, 250, 475, 300, 350, 350);
+		} else if(dir == 3) {
+			surface.quad(400, 300, 400, 250, 450, 350, 350, 300);
+		} else if(dir == 4) {
+			surface.quad(400, 300, 450, 250, 400, 375, 350, 250);
+		} else if(dir == 5) {
+			surface.quad(400, 300, 450, 300, 350, 350, 400, 250);
+		} else if(dir == 6) {
+			surface.quad(400, 300, 450, 350, 325, 300, 450, 250);
+		} else if(dir == 7) {
+			surface.quad(400, 300, 400, 350, 350, 250, 450, 300);
+		}
 		surface.pop();
 	}
 	
