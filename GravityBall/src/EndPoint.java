@@ -7,7 +7,7 @@ import processing.core.PApplet;
  */
 public class EndPoint {
 	private int x, y;
-	public final int RADIUS = 20;
+	public static final int RADIUS = 20;
 	public EndPoint(int x, int y) {
 		this.x = x;
 		this.y = y;

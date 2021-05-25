@@ -19,10 +19,12 @@ public class Instruction extends Screen {
 		this.surface = surface;
 		back = new Rectangle(0,550,100,50);
 	}
+	
 	public void setup()
 	{
 		backGround = surface.loadImage("nature2.jpg");
 	}
+	
 	public void draw() {
 		surface.pushStyle();
 

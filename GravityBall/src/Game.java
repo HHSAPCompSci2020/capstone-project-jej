@@ -1,6 +1,7 @@
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.awt.Point;
+import java.awt.Rectangle;
 /**
  * The Game class, extends Screen
  * The Game class contains all of the components needed for the game.
@@ -14,6 +15,7 @@ public class Game extends Screen {
 	private static final int MAX_LEVEL = 8;
 	private int levelNumber;
 	private Player player;
+	private Rectangle pause;
 	private EndPoint end;
 	private final double GRAVSTR = 0.1; //gravity strength
 	private enum Gravity {
@@ -34,6 +36,7 @@ public class Game extends Screen {
 		player = new Player(start.x, start.y);
 		g = Gravity.DOWN;
 		end = level.getEnd();
+		pause = new Rectangle(5,15,100,25);
 	}
 	/**
 	 * All the logic for the game is executed and drawn when this method is called
@@ -46,8 +49,15 @@ public class Game extends Screen {
 		surface.noFill();
 		
 		surface.fill(0);
-		surface.text("press space to exit, p to pause", 0, 25);
+		surface.text("press space to exit, p to pause", 150, 25);
 		surface.popStyle();
+		
+		surface.fill(255);
+		surface.rect(pause.x, pause.y, pause.width, pause.height, 10, 10, 10, 10);
+		surface.fill(0);
+		String str = "Pause";
+		float w = surface.textWidth(str);
+		surface.text(str, pause.x+pause.width/2-w/2, pause.y+pause.height/2);
 		
 		player.act(level.getObstacles());
 		
@@ -161,6 +171,7 @@ public class Game extends Screen {
 			g = Gravity.RIGHT;
 		}
 	}
+	
 	/**
 	 * Changes the color of the background
 	 * @param surface Surface of the background
@@ -177,5 +188,11 @@ public class Game extends Screen {
 	
 	public Gravity getGravity() {
 		return g;
+	}
+	public void mousePressed()
+	{
+		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
+		if (pause.contains(p))
+			surface.switchScreen(ScreenSwitcher.PAUSE);
 	}
 }

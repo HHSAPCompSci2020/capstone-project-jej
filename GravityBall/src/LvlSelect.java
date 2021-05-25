@@ -24,10 +24,12 @@ public class LvlSelect extends Screen
 		lvl7 = new Rectangle(300,300,50,50);
 		lvl8 = new Rectangle(400,300,50,50);
 	}
+	
 	public void setup()
 	{
 		background = surface.loadImage("nature3.jpg");
 	}
+	
 	public void draw() {
 		surface.pushStyle();
 		
