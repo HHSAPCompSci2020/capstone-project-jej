@@ -135,7 +135,28 @@ public class Level {
 			obstacles.add(new Wall(350, 50, 25, 225, 0));
 			obstacles.add(new Wall(350, 25, 150, 25, 0));
 		}
-
+		else if(level == 6) {
+			start = new Point(100, 110);
+			end = new EndPoint(100, 500);
+			
+			obstacles.add(new Wall(50, 50, 700, 25, 0));
+			obstacles.add(new Wall(50, 75, 25, 500, 0));
+			obstacles.add(new Wall(75, 550, 675, 25, 0));
+			obstacles.add(new Wall(725, 75, 25, 475, 0));
+			obstacles.add(new Booster(125, 75, 400, 475));
+			
+			obstacles.add(new Wall(50, 200, 575, 25, 0));
+			obstacles.add(new Wall(650, 90, 100, 25, Math.PI/4+0.05));
+			obstacles.add(new Spike(150, 190, 20, Math.PI));
+			obstacles.add(new Wall(610, 175, 25, 200, 0));
+			obstacles.add(new Spike(540, 270, 20, -Math.PI/2));
+			obstacles.add(new Spike(620, 270, 20, Math.PI/2));
+			
+			obstacles.add(new Booster(525, 225, 85, 325));
+			obstacles.add(new Wall(350, 300, 25, 250, 0));
+			obstacles.add(new Spike(351, 290, 2, Math.PI));
+			obstacles.add(new Spike(620, 539, 10, Math.PI));
+		}
 		else {
 			System.out.println("ERROR: Level " + level + " wasn't found or doesn't exist");
 		}
