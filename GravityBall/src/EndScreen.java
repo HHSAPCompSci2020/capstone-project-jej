@@ -12,7 +12,7 @@ import processing.core.PImage;
 public class EndScreen extends Screen {
 	private DrawingSurface surface;
 	private Rectangle nextLevel;
-	private PImage background;
+//	private PImage background;
 	public EndScreen(DrawingSurface surface) {
 		super(800,600);
 		this.surface = surface;
@@ -23,7 +23,7 @@ public class EndScreen extends Screen {
 	 */
 	public void setup() 
 	{
-		background = surface.loadImage("nature5.jpg");
+//		background = surface.loadImage("nature5.jpg");
 	}
 	//display a "you did it" and then add buttons that go to the main menu, level select
 	/**
@@ -36,7 +36,7 @@ public class EndScreen extends Screen {
 		surface.noFill();
 		surface.fill(0);
 		surface.push();
-		surface.image(background, 0 ,0,800,600);
+//		surface.image(background, 0 ,0,800,600);
 		surface.textSize(20);
 		surface.text("You completed the level!", 280, 150);
 		surface.fill(255);

@@ -14,8 +14,8 @@ public class Level {
 	private EndPoint end;
 	/**
 	 * 
-	 * @param level
-	 * @param surface
+	 * @param level The level which is loaded
+	 * @param surface The surface where the level is drawn on
 	 */
 	public Level(int level, DrawingSurface surface) {
 		this.level = level;

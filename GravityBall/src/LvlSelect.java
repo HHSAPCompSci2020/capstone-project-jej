@@ -10,7 +10,7 @@ public class LvlSelect extends Screen
 {
 	private DrawingSurface surface;
 	private Rectangle back,lvl1,lvl2,lvl3,lvl4,lvl5,lvl6,lvl7, lvl8;
-	private PImage background;
+//	private PImage background;
 	public LvlSelect(DrawingSurface surface) {
 		super(800,600);
 		this.surface = surface;
@@ -28,7 +28,7 @@ public class LvlSelect extends Screen
 	 */
 	public void setup()
 	{
-		background = surface.loadImage("nature3.jpg");
+//		background = surface.loadImage("nature3.jpg");
 	}
 	/**
 	 * draws the screen
@@ -37,7 +37,7 @@ public class LvlSelect extends Screen
 		surface.pushStyle();
 		
 		surface.background(255,255,255);
-		surface.image(background, 0 ,0,800,600);
+//		surface.image(background, 0 ,0,800,600);
 		surface.fill(255);
 		surface.rect(back.x, back.y, back.width, back.height, 10, 10, 10, 10);
 		surface.fill(0);

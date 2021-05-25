@@ -13,7 +13,7 @@ import processing.core.PImage;
 public class Pause extends Screen {
 	private DrawingSurface surface;
 	private Rectangle back, menu;
-	private PImage background;
+//	private PImage background;
 	public Pause(DrawingSurface surface) {
 		super(800,600);
 		this.surface = surface;
@@ -26,7 +26,7 @@ public class Pause extends Screen {
 	 */
 	public void setup()
 	{
-		background = surface.loadImage("nature4.jpg");
+//		background = surface.loadImage("nature4.jpg");
 	}
 	/**
 	 * draws the screen
@@ -35,7 +35,7 @@ public class Pause extends Screen {
 		surface.pushStyle();
 
 		surface.background(255);   // Clear the screen with a white background
-		surface.image(background,0,0, 800, 600);
+//		surface.image(background,0,0, 800, 600);
 		surface.stroke(0);     // Set line drawing color to white
 		surface.noFill();
 		

@@ -38,9 +38,10 @@ public class Spike extends Obstacle {
 	
 	/**
 	 * Calculates a point of the rectangle
-	 * @param x
-	 * @param y
-	 * @param angle
+	 * @param x The initial x-coordinate of the point
+	 * @param y The initial y-coordinate of the point
+	 * @param theta The angle to rotate
+	 * @return The Point where the calculated coordinates would be.
 	 * @author Aholio (StackOverflow)
 	 */
 	private Point calculatePoint(int x, int y, double theta) {

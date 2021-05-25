@@ -5,7 +5,6 @@ import processing.core.PApplet;
 /**
  * The Line class represents a line that can be drawn onto a window.
  * @author Edward Min
- * @version 1.0.0
  */
 public class Line {
 	private double x1, y1; // Coordinates of first point
@@ -231,7 +230,7 @@ public class Line {
 	}
 	
 	/**
-	 * Returns the angle of the Line on the interval -pi/2 < x <= pi/2
+	 * Returns the angle of the Line on the interval -pi/2 to pi/2
 	 * @return Angle of tilt of this Line
 	 */
 	public double getAngle() {

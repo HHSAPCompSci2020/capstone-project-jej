@@ -190,9 +190,8 @@ public class Game extends Screen {
 	/**
 	 * Changes the color of the background
 	 * @param surface Surface of the background
-	 * @param r	Amount of red
-	 * @param g Amount of green
-	 * @param b Amount of blue
+	 * @param c The arrow's color
+	 * @param dir The direction of the arrow
 	 */
 	public void changeBackground(DrawingSurface surface, Color c, int dir) {
 		surface.push();
