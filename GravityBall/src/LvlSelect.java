@@ -135,10 +135,10 @@ public class LvlSelect extends Screen
 			surface.changeLevel(7);
 			surface.switchScreen(ScreenSwitcher.GAME);
 		}
-		else if(lvl8.contains(p)) {
+		/*else if(lvl8.contains(p)) {
 			surface.changeLevel(8);
 			surface.switchScreen(ScreenSwitcher.GAME);
-		}
+		}*/
 		
 	}
 }

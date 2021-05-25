@@ -16,7 +16,7 @@ public class EndScreen extends Screen {
 	public EndScreen(DrawingSurface surface) {
 		super(800,600);
 		this.surface = surface;
-		nextLevel = new Rectangle(100,100,100,50);
+		nextLevel = new Rectangle(300, 200, 200, 50);
 	}
 	
 	public void setup() 
@@ -30,22 +30,35 @@ public class EndScreen extends Screen {
 		surface.stroke(0);     // Set line drawing color to white
 		surface.noFill();
 		surface.fill(0);
+		surface.push();
 		surface.image(background, 0 ,0,800,600);
 		surface.textSize(20);
-		surface.text("You did it!", 50, 50);
+		surface.text("You completed the level!", 280, 150);
 		surface.fill(255);
 		surface.rect(nextLevel.x, nextLevel.y, nextLevel.width, nextLevel.height, 10, 10, 10, 10);
 		surface.fill(0);
-		String str = "nextLevel";
+		String str = "Next Level";
+		if(Game.getLevelNumber() == 7) {
+			str = "Main Menu";
+		}
+		
 		float w = surface.textWidth(str);
 		surface.text(str, nextLevel.x+nextLevel.width/2-w/2, nextLevel.y+nextLevel.height/2);
+		surface.pop();
 	}
 	
 	public void mousePressed()
 	{
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
-		if (nextLevel.contains(p))
+		if (nextLevel.contains(p)) {
+			if(Game.getLevelNumber() == 7) {
+				surface.switchScreen(ScreenSwitcher.MENU);
+			}
+			else {
 			surface.changeLevel(Game.getLevelNumber()+1);
 			surface.switchScreen(ScreenSwitcher.GAME);
+			}
+		}
+
 	}
 }
