@@ -14,7 +14,7 @@ public class Game extends Screen {
 	private DrawingSurface surface;
 	private Level level;
 	private static final int MAX_LEVEL = 7;
-	private int levelNumber;
+	private static int levelNumber;
 	private Player player;
 	private Rectangle pause;
 	private EndPoint end;
