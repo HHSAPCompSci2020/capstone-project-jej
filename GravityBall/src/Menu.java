@@ -25,6 +25,7 @@ public class Menu extends Screen {
 		title = surface.loadImage("gravityball1.png");
 		background = surface.loadImage("nature.jpg");
 	}
+	
 	public void draw() {
 		surface.pushStyle();
 		

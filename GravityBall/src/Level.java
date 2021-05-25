@@ -21,12 +21,13 @@ public class Level {
 		this.level = level;
 		setup();
 	}
+	
 	/**
 	 * Adds all of the obstacles and makes a level based on the int passed in
 	 */
 	private void setup() { // By Jensen
 		obstacles = new ArrayList<Obstacle>();
-		if(level == 3) {
+		if(level == 5) {
 			start = new Point(200, 200);
 			end = new EndPoint(500, 500);
 			//add things that extend from obstacles
@@ -62,7 +63,7 @@ public class Level {
 			obstacles.add(new Spike(215, 75, 40, 0));
 			obstacles.add(new Spike(500, 290, 12, Math.PI));
 		}
-		else if(level == 4) { // By Jensen
+		else if(level == 3) { // By Jensen
 			start = new Point(500, 500);
 			end = new EndPoint(500, 100);
 			
@@ -86,8 +87,9 @@ public class Level {
 			obstacles.add(new Spike(70, 75, 40, 0));
 			obstacles.add(new Spike(218, 150, 2, Math.PI));
 			
+			
 		}
-		else if(level == 5) { // By Edward
+		else if(level == 4) { // By Edward
 			start = new Point(100, 300);
 			end = new EndPoint(550, 450);
 			
@@ -156,7 +158,29 @@ public class Level {
 			
 		
 		}
-
+		else if(level == 6) {
+			start = new Point(100, 110);
+			end = new EndPoint(100, 500);
+			
+			obstacles.add(new Wall(50, 50, 700, 25, 0));
+			obstacles.add(new Wall(50, 75, 25, 500, 0));
+			obstacles.add(new Wall(75, 550, 675, 25, 0));
+			obstacles.add(new Wall(725, 75, 25, 475, 0));
+			obstacles.add(new Booster(125, 75, 400, 475));
+			
+			obstacles.add(new Wall(50, 200, 575, 25, 0));
+			obstacles.add(new Wall(650, 90, 100, 25, Math.PI/4+0.05));
+			obstacles.add(new Spike(150, 190, 20, Math.PI));
+			obstacles.add(new Wall(610, 175, 25, 200, 0));
+			obstacles.add(new Spike(540, 270, 20, -Math.PI/2));
+			obstacles.add(new Spike(620, 270, 20, Math.PI/2));
+			
+			obstacles.add(new Booster(525, 225, 85, 325));
+			obstacles.add(new Wall(350, 300, 25, 250, 0));
+			obstacles.add(new Spike(351, 290, 2, Math.PI));
+			obstacles.add(new Spike(620, 539, 10, Math.PI));
+			//obstacles.add(new Sludge(75, 75, 50, 125));
+		}
 		else {
 			System.out.println("ERROR: Level " + level + " wasn't found or doesn't exist");
 		}

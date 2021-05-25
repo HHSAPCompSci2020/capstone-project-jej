@@ -21,10 +21,12 @@ public class Pause extends Screen {
 		menu = new Rectangle(400-50,350,100,50);
 		
 	}
+	
 	public void setup()
 	{
 		background = surface.loadImage("nature4.jpg");
 	}
+	
 	public void draw() {
 		surface.pushStyle();
 
