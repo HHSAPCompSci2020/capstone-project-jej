@@ -2,7 +2,7 @@ import java.awt.Point;
 import java.awt.Rectangle;
 import processing.core.PImage;
 /**
- * 
+ * This class is the level select screen
  * @author Siyi Ji
  *
  */
@@ -24,12 +24,16 @@ public class LvlSelect extends Screen
 		lvl7 = new Rectangle(300,300,50,50);
 		lvl8 = new Rectangle(400,300,50,50);
 	}
-	
+	/**
+	 * sets up the images used on the screen
+	 */
 	public void setup()
 	{
 		background = surface.loadImage("nature3.jpg");
 	}
-	
+	/**
+	 * draws the screen
+	 */
 	public void draw() {
 		surface.pushStyle();
 		
@@ -97,7 +101,9 @@ public class LvlSelect extends Screen
 		
 		surface.popStyle();
 	}
-	
+	/**
+	 * detects the buttons 
+	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (back.contains(p))

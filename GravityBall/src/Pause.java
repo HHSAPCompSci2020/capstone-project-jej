@@ -6,7 +6,7 @@ import javax.xml.stream.events.StartDocument;
 
 import processing.core.PImage;
 /**
- * instructions
+ * This the pause screen, used during the game
  * @author Siyi Ji
  *
  */
@@ -21,12 +21,16 @@ public class Pause extends Screen {
 		menu = new Rectangle(400-50,350,100,50);
 		
 	}
-	
+	/**
+	 * sets up the Images
+	 */
 	public void setup()
 	{
 		background = surface.loadImage("nature4.jpg");
 	}
-	
+	/**
+	 * draws the screen
+	 */
 	public void draw() {
 		surface.pushStyle();
 
@@ -61,7 +65,9 @@ public class Pause extends Screen {
 
 		
 	}
-	
+	/**
+	 * detects the buttons
+	 */
 	public void mousePressed()
 	{
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
