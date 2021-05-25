@@ -18,12 +18,17 @@ public class EndScreen extends Screen {
 		this.surface = surface;
 		nextLevel = new Rectangle(100,100,100,50);
 	}
-	
+	/**
+	 * sets up the image
+	 */
 	public void setup() 
 	{
 		background = surface.loadImage("nature5.jpg");
 	}
 	//display a "you did it" and then add buttons that go to the main menu, level select
+	/**
+	 * draws the screen
+	 */
 	public void draw() {
 		surface.background(255);   // Clear the screen with a white background
 		
@@ -40,7 +45,9 @@ public class EndScreen extends Screen {
 		float w = surface.textWidth(str);
 		surface.text(str, nextLevel.x+nextLevel.width/2-w/2, nextLevel.y+nextLevel.height/2);
 	}
-	
+	/**
+	 * detects the buttons
+	 */
 	public void mousePressed()
 	{
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
