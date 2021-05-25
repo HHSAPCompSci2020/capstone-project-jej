@@ -1,6 +1,10 @@
 
 import java.awt.Point;
+import java.io.IOException;
+import java.io.InputStream;
 import java.awt.Rectangle;
+import javax.imageio.ImageIO;
+import java.awt.Image;
 
 import processing.core.PImage;
 /**
@@ -23,9 +27,24 @@ public class Menu extends Screen {
 	 * sets up the image
 	 */
 	public void setup()
-	{
-//		title = surface.loadImage("data/gravityball1.png");
-//		background = surface.loadImage("data/nature.jpg");
+	{	
+		InputStream is = getClass().getClassLoader().getResourceAsStream("gravityball1.png");
+		try {
+			Image i = ImageIO.read(is);
+			title = new PImage(i);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		is = getClass().getClassLoader().getResourceAsStream("nature.jpg");
+		try {
+			Image i = ImageIO.read(is);
+			background = new PImage(i);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		//title = surface.loadImage("gravityball1");
+		//background = surface.loadImage("data/nature.jpg");
 	}
 	/**
 	 * draws the screen
@@ -34,7 +53,7 @@ public class Menu extends Screen {
 		surface.pushStyle();
 		
 		surface.background(255,255,255);
-//		surface.image(background,0,0,800,600);
+		surface.image(background,0,0,800,600);
 		surface.fill(255);
 		surface.rect(start.x, start.y, start.width, start.height, 10, 10, 10, 10);
 		surface.fill(0);
@@ -47,7 +66,7 @@ public class Menu extends Screen {
 		str = "How to Play";
 		w = surface.textWidth(str);
 		surface.text(str, howToPlay.x+howToPlay.width/2-w/2, howToPlay.y+howToPlay.height/2);
-//		surface.image(title, 100, 80,600,100);
+		surface.image(title, 100, 80,600,100);
 		
 		
 		

@@ -1,5 +1,11 @@
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
+import java.io.IOException;
+import java.io.InputStream;
+
+import javax.imageio.ImageIO;
+
 import processing.core.PImage;
 /**
  * This class is the level select screen
@@ -10,7 +16,7 @@ public class LvlSelect extends Screen
 {
 	private DrawingSurface surface;
 	private Rectangle back,lvl1,lvl2,lvl3,lvl4,lvl5,lvl6,lvl7, lvl8;
-//	private PImage background;
+	private PImage background;
 	public LvlSelect(DrawingSurface surface) {
 		super(800,600);
 		this.surface = surface;
@@ -28,7 +34,13 @@ public class LvlSelect extends Screen
 	 */
 	public void setup()
 	{
-//		background = surface.loadImage("nature3.jpg");
+		InputStream is = getClass().getClassLoader().getResourceAsStream("nature3.jpg");
+		try {
+			Image i = ImageIO.read(is);
+			background = new PImage(i);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	/**
 	 * draws the screen
@@ -37,7 +49,7 @@ public class LvlSelect extends Screen
 		surface.pushStyle();
 		
 		surface.background(255,255,255);
-//		surface.image(background, 0 ,0,800,600);
+		surface.image(background, 0 ,0,800,600);
 		surface.fill(255);
 		surface.rect(back.x, back.y, back.width, back.height, 10, 10, 10, 10);
 		surface.fill(0);

@@ -6,7 +6,6 @@ import processing.core.PApplet;
 import java.awt.Point;
 import java.util.ArrayList;
 
-import processing.core.PApplet;
 
 /**
  * This class operates as the surface where Player and Obstacles can draw themselves
@@ -130,6 +129,6 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		game = new Game(this, level);
 		screens.add(1, game);
 	}
-
+	
 }
 

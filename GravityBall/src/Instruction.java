@@ -1,7 +1,11 @@
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.io.InputStream;
 
+import javax.imageio.ImageIO;
 import javax.xml.stream.events.StartDocument;
 
 import processing.core.PImage;
@@ -13,7 +17,7 @@ import processing.core.PImage;
 public class Instruction extends Screen {
 	private DrawingSurface surface;
 	private Rectangle back;
-//	private PImage backGround;
+	private PImage backGround;
 	public Instruction(DrawingSurface surface) {
 		super(800,600);
 		this.surface = surface;
@@ -24,7 +28,14 @@ public class Instruction extends Screen {
 	 */
 	public void setup()
 	{
-//		backGround = surface.loadImage("nature2.jpg");
+		InputStream is = getClass().getClassLoader().getResourceAsStream("nature2.jpg");
+		try {
+			Image i = ImageIO.read(is);
+			backGround = new PImage(i);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		//backGround = surface.loadImage("nature2.jpg");
 	}
 	/**
 	 * draws the screen
@@ -35,7 +46,7 @@ public class Instruction extends Screen {
 		surface.background(255);   // Clear the screen with a white background
 		surface.stroke(0);     // Set line drawing color to white
 		surface.noFill();
-//		surface.image(backGround,0,0,800,600);
+		surface.image(backGround,0,0,800,600);
 		surface.fill(0);
 		surface.textSize(15);
 		surface.textAlign(surface.CENTER);

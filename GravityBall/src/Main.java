@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import processing.awt.PSurfaceAWT;
 import processing.core.PApplet;
 
+
 /**
  * This class serves as the carrier of the main method, instantiating the window
  * that users can view.
