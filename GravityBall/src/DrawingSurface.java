@@ -121,7 +121,6 @@ public class DrawingSurface extends PApplet implements ScreenSwitcher {
 		return new Point((int)(actual.getX()/ratioX) , (int)(actual.getY()/ratioY));
 	}
 
-	@Override
 	public void switchScreen(int i) {
 		activeScreen = screens.get(i);
 	}

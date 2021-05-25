@@ -12,7 +12,7 @@ public class Player {
 	private double xPos, yPos;
 	private double initX, initY;
 	private double xVel, yVel;
-	public static double RADIUS = 20;
+	public static final double RADIUS = 20;
 	
 	/**
 	 * Initializes a Player with all values (position, initial position, and velocity) being

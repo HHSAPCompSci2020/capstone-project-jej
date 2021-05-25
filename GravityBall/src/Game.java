@@ -171,6 +171,7 @@ public class Game extends Screen {
 			g = Gravity.RIGHT;
 		}
 	}
+	
 	/**
 	 * Changes the color of the background
 	 * @param surface Surface of the background

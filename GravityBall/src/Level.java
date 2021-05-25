@@ -21,6 +21,7 @@ public class Level {
 		this.level = level;
 		setup();
 	}
+	
 	/**
 	 * Adds all of the obstacles and makes a level based on the int passed in
 	 */
