@@ -13,7 +13,7 @@ public class Game extends Screen {
 	private DrawingSurface surface;
 	private Level level;
 	private static final int MAX_LEVEL = 8;
-	private int levelNumber;
+	private static int levelNumber;
 	private Player player;
 	private Rectangle pause;
 	private EndPoint end;
@@ -69,16 +69,17 @@ public class Game extends Screen {
 		
 		
 		if(distance <= end.RADIUS*2) {
-//			surface.switchScreen(ScreenSwitcher.ENDSCREEN);
+			surface.switchScreen(ScreenSwitcher.ENDSCREEN);
 //			surface.switchScreen(5);
-			if(levelNumber == MAX_LEVEL) {
-				surface.switchScreen(ScreenSwitcher.ENDSCREEN);
-				surface.switchScreen(5);
-			} else {
-				level = new Level(++levelNumber, surface);
-				end = level.getEnd();
-				player = new Player(level.getStartPoint().x, level.getStartPoint().y);
-			}
+//			if(levelNumber == MAX_LEVEL) {
+//				surface.switchScreen(ScreenSwitcher.MENU);
+//
+//			} else {
+//				level = new Level(++levelNumber, surface);
+//				end = level.getEnd();
+//				player = new Player(level.getStartPoint().x, level.getStartPoint().y);
+//			}
+
 		}
 		
 		
@@ -194,5 +195,10 @@ public class Game extends Screen {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (pause.contains(p))
 			surface.switchScreen(ScreenSwitcher.PAUSE);
+	}
+	
+	public static int getLevelNumber()
+	{
+		return levelNumber;
 	}
 }
