@@ -269,7 +269,22 @@ public class Player {
 			if(obstacles.get(i).getID().equals("boost")) {
 				if(obstacles.get(i).getX() < xPos && xPos < obstacles.get(i).getX() + obstacles.get(i).getWidth() &&
 						obstacles.get(i).getY() < yPos && yPos < obstacles.get(i).getY() + obstacles.get(i).getHeight()) {
-					this.accelerate(0.15 * Math.cos(getVelAngle()), 0.15 * Math.sin(getVelAngle()));
+					this.accelerate(0.25 * Math.cos(getVelAngle()), 0.25 * Math.sin(getVelAngle()));
+					break;
+				}
+			} else if(obstacles.get(i).getID().equals("slow")) {
+				if(obstacles.get(i).getX() < xPos && xPos < obstacles.get(i).getX() + obstacles.get(i).getWidth() &&
+						obstacles.get(i).getY() < yPos && yPos < obstacles.get(i).getY() + obstacles.get(i).getHeight()) {
+					double xAcc = -0.075 * Math.cos(getVelAngle());
+					double yAcc = -0.075 * Math.sin(getVelAngle());
+					if(Math.abs(xVel) < Math.abs(xAcc)) {
+						xAcc = -xVel;
+					}
+					if(Math.abs(yVel) < Math.abs(yAcc)) {
+						yAcc = -yVel;
+					}
+					this.accelerate(xAcc, yAcc);
+					
 					break;
 				}
 			}

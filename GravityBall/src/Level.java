@@ -84,6 +84,9 @@ public class Level {
 			end = new EndPoint(550, 450);
 			
 			obstacles.add(new Booster(300, 200, 200, 200));
+			obstacles.add(new Sludge(600, 250, 50, 100));
+			obstacles.add(new Sludge(350, 150, 100, 50));
+			obstacles.add(new Sludge(350, 400, 100, 150));
 			
 			obstacles.add(new Wall(25, 225, 325, 25, 0));
 			obstacles.add(new Wall(25, 250, 25, 100, 0));
