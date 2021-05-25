@@ -1,7 +1,7 @@
 import processing.core.PApplet;
 
 /**
- * The Boost class is represented by a slightly transparent green
+ * The Booster class is represented by a slightly transparent green
  * rectangle, which accelerates the Player in the direction that
  * it is moving. This class intentionally doesn't have a hitbox,
  * as the interaction with the Player is calculated in its act
