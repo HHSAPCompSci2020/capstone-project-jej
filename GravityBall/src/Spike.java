@@ -1,8 +1,8 @@
 import processing.core.PApplet;
 import java.awt.Point;
 /**
- * The Spike class is an obstacle which kills a Player when it's hitbox intercepts with the 
- * Player's hitbox.
+ * The Spike class is an obstacle which kills a Player when its hitbox intercepts with the 
+ * Player's hitbox. This class extends Obstacle.
  * Basis copied from Wall class, created by Jensen.
  * @author Edward
  *
@@ -19,15 +19,15 @@ public class Spike extends Obstacle {
 		id = "spike";
 		this.numOfSpikes = n;
 		this.angle = angle;
-		int width = SPIKE_WIDTH * numOfSpikes;
-		int height = SPIKE_HEIGHT;
+		width = SPIKE_WIDTH * numOfSpikes;
+		height = SPIKE_HEIGHT;
 		this.cx = (int)(getX() + width/2.0);
 		this.cy = (int)(getY() + height/2.0);
 		
 		Point topleft = calculatePoint(x, y, angle);
-		Point topright = calculatePoint(x + width, y, angle);
-		Point bottomleft = calculatePoint(x, y + height, angle);
-		Point bottomright = calculatePoint(x + width, y + height, angle);
+		Point topright = calculatePoint(x + (int)width, y, angle);
+		Point bottomleft = calculatePoint(x, y + (int)height, angle);
+		Point bottomright = calculatePoint(x + (int)width, y + (int)height, angle);
 		
 		hitbox.add(new Line(topleft.x, topleft.y, topright.x, topright.y));
 		hitbox.add(new Line(topright.x, topright.y, bottomright.x, bottomright.y));
@@ -35,6 +35,7 @@ public class Spike extends Obstacle {
 		hitbox.add(new Line(bottomleft.x, bottomleft.y, topleft.x, topleft.y));
 		
 	}
+	
 	/**
 	 * Calculates a point of the rectangle
 	 * @param x
@@ -57,6 +58,11 @@ public class Spike extends Obstacle {
 		return new Point(x, y);
 	}
 	
+	/**
+	 * Draws this Spike on the given PApplet
+	 * @param surface The PApplet to be drawn on
+	 * @post This Spike will be drawn onto the PApplet
+	 */
 	public void draw(PApplet surface) {
 		surface.fill(255);
 		

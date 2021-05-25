@@ -264,6 +264,16 @@ public class Player {
 				death();
 			}
 		}
+		
+		for(int i = 0; i < obstacles.size(); i++) {
+			if(obstacles.get(i).getID().equals("boost")) {
+				if(obstacles.get(i).getX() < xPos && xPos < obstacles.get(i).getX() + obstacles.get(i).getWidth() &&
+						obstacles.get(i).getY() < yPos && yPos < obstacles.get(i).getY() + obstacles.get(i).getHeight()) {
+					this.accelerate(0.15 * Math.cos(getVelAngle()), 0.15 * Math.sin(getVelAngle()));
+					break;
+				}
+			}
+		}
 	}
 	
 	/**

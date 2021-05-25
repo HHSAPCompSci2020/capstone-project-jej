@@ -1,12 +1,13 @@
-import processing.core.PApplet;
 import java.awt.Point;
+
+import processing.core.PApplet;
+
 /**
  * Wall class, can also be platform
  * @author Jensen
  *
  */
 public class Wall extends Obstacle {
-	private int width, height;
 	private int cx, cy; //center x and center y
 	private double angle; //angle in radians
 	public Wall(int x, int y, int width, int height, double angle) {
@@ -29,6 +30,7 @@ public class Wall extends Obstacle {
 		hitbox.add(new Line(bottomleft.x, bottomleft.y, topleft.x, topleft.y));
 		
 	}
+	
 	/**
 	 * Calculates a point of the rectangle
 	 * @param x
@@ -57,7 +59,7 @@ public class Wall extends Obstacle {
 		surface.pushMatrix();
 		surface.translate(cx, cy);
 		surface.rotate((float)angle);
-		surface.rect(0-width/2, 0-height/2, width, height);
+		surface.rect((float)(0-width/2), (float)(0-height/2), (float)(width), (float)(height));
 		surface.popMatrix();
 		
 		

@@ -79,6 +79,12 @@ public class Level {
 			obstacles.add(new Spike(218, 150, 2, Math.PI));
 			
 		}
+		else if(level == 4) {
+			start = new Point(500, 500);
+			end = new EndPoint(500, 100);
+			
+			obstacles.add(new Booster(100, 100, 200, 200));
+		}
 		else {
 			System.out.println("ERROR: Level " + level + " wasn't found or doesn't exist");
 		}

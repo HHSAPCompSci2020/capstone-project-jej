@@ -4,7 +4,8 @@ import processing.core.PApplet;
 
 public abstract class Obstacle {
 	
-	private double x, y;
+	protected double x, y;
+	protected double width, height;
 	protected ArrayList<Line> hitbox;
 	protected String id;
 	
@@ -12,6 +13,8 @@ public abstract class Obstacle {
 	{
 		x = 0;
 		y = 0;
+		width = 0;
+		height = 0;
 		hitbox = new ArrayList<Line>();
 	}
 	
@@ -19,6 +22,8 @@ public abstract class Obstacle {
 	{
 		this.x = x;
 		this.y = y;
+		width = 0;
+		height = 0;
 		hitbox = new ArrayList<Line>();
 	}
 	
@@ -33,6 +38,14 @@ public abstract class Obstacle {
 		return y;
 	}
 	
+	public double getWidth() {
+		return width;
+	}
+	
+	public double getHeight() {
+		return height;
+	}
+	
 	public ArrayList<Line> getHitbox(){
 		return hitbox;
 	}
@@ -41,7 +54,5 @@ public abstract class Obstacle {
 		return id;
 	}
 	
-	public void draw(PApplet Surface) {
-		
-	}
+	public abstract void draw(PApplet Surface);
 }
