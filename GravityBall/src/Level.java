@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import processing.core.PApplet;
 
 /**
- * The level class
+ * The Level class. A collection of obstacles with a start and end point.
  * @author Jensen
  *
  */
@@ -12,15 +12,21 @@ public class Level {
 	private int level;
 	private Point start;
 	private EndPoint end;
-	//the int passed in is the level number
+	/**
+	 * 
+	 * @param level
+	 * @param surface
+	 */
 	public Level(int level, DrawingSurface surface) {
 		this.level = level;
 		setup();
 	}
-	
+	/**
+	 * Adds all of the obstacles and makes a level based on the int passed in
+	 */
 	private void setup() { // By Jensen
 		obstacles = new ArrayList<Obstacle>();
-		if(level == 1) {
+		if(level == 3) {
 			start = new Point(200, 200);
 			end = new EndPoint(500, 500);
 			//add things that extend from obstacles
@@ -37,6 +43,8 @@ public class Level {
 			obstacles.add(new Wall(300, 540, 200, 25, 0));
 			obstacles.add(new Wall(495, 500, 100, 25, -Math.PI/4));
 			obstacles.add(new Spike(320, 530, 15, Math.PI));
+			obstacles.add(new Booster(300, 125, 50, 125));
+			obstacles.add(new Booster(350, 400, 75, 100));
 		}
 		else if(level == 2) { // By Jensen
 			start = new Point(100, 100);
@@ -54,7 +62,7 @@ public class Level {
 			obstacles.add(new Spike(215, 75, 40, 0));
 			obstacles.add(new Spike(500, 290, 12, Math.PI));
 		}
-		else if(level == 3) { // By Jensen
+		else if(level == 4) { // By Jensen
 			start = new Point(500, 500);
 			end = new EndPoint(500, 100);
 			
@@ -79,7 +87,7 @@ public class Level {
 			obstacles.add(new Spike(218, 150, 2, Math.PI));
 			
 		}
-		else if(level == 4) { // By Edward
+		else if(level == 5) { // By Edward
 			start = new Point(100, 300);
 			end = new EndPoint(550, 450);
 			
@@ -116,6 +124,18 @@ public class Level {
 			
 			obstacles.add(new Spike(350, 540, 25, Math.PI));
 		}
+		else if(level == 1) {
+			start = new Point(200, 313);
+			end = new EndPoint(425, 100);
+			
+			obstacles.add(new Wall(100, 350, 400, 25, 0));
+			obstacles.add(new Wall(100, 250, 250, 25, 0));
+			obstacles.add(new Wall(100, 250, 25, 125, 0));
+			obstacles.add(new Wall(475, 50, 25, 300, 0));
+			obstacles.add(new Wall(350, 50, 25, 225, 0));
+			obstacles.add(new Wall(350, 25, 150, 25, 0));
+		}
+
 		else {
 			System.out.println("ERROR: Level " + level + " wasn't found or doesn't exist");
 		}

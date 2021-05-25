@@ -3,7 +3,8 @@ import java.awt.Point;
 import processing.core.PApplet;
 
 /**
- * Wall class, can also be platform
+ * Wall class
+ * The player will bounce off of the wall when they collide with it
  * @author Jensen
  *
  */

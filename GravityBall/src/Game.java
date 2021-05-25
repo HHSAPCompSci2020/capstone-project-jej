@@ -1,7 +1,13 @@
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.awt.Point;
-
+/**
+ * The Game class, extends Screen
+ * The Game class contains all of the components needed for the game.
+ * The Game class creates a new level every time the previous level is complete.
+ * @author Jensen
+ *
+ */
 public class Game extends Screen {
 	private DrawingSurface surface;
 	private Level level;
@@ -14,7 +20,11 @@ public class Game extends Screen {
 		UP, DOWN, LEFT, RIGHT;
 	}
 	Gravity g;
-	
+	/**
+	 * Constructor of the game, should only be called 1 time on run
+	 * @param surface Surface to draw the game on
+	 * @param l Level number to create (levels are static)
+	 */
 	public Game(DrawingSurface surface, int l) {
 		super(800,600);
 		this.surface = surface;
@@ -25,7 +35,9 @@ public class Game extends Screen {
 		g = Gravity.DOWN;
 		end = level.getEnd();
 	}
-	
+	/**
+	 * All the logic for the game is executed and drawn when this method is called
+	 */
 	public void draw() {
 		surface.pushStyle();
 
@@ -149,6 +161,13 @@ public class Game extends Screen {
 			g = Gravity.RIGHT;
 		}
 	}
+	/**
+	 * Changes the color of the background
+	 * @param surface Surface of the background
+	 * @param r	Amount of red
+	 * @param g Amount of green
+	 * @param b Amount of blue
+	 */
 	public void changeBackground(DrawingSurface surface, int r, int g, int b) {
 		surface.push();
 		surface.fill(r, g, b, 128);
