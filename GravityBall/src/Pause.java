@@ -12,12 +12,13 @@ import processing.core.PImage;
  */
 public class Pause extends Screen {
 	private DrawingSurface surface;
-	private Rectangle back;
+	private Rectangle back, menu;
 	private PImage background;
 	public Pause(DrawingSurface surface) {
 		super(800,600);
 		this.surface = surface;
-		back = new Rectangle(0,550,100,50);
+		back = new Rectangle(400-50,250,100,50);
+		menu = new Rectangle(400-50,350,100,50);
 		
 	}
 	public void setup()
@@ -39,9 +40,20 @@ public class Pause extends Screen {
 		surface.fill(255);
 		surface.rect(back.x, back.y, back.width, back.height, 10, 10, 10, 10);
 		surface.fill(0);
+		surface.textSize(15);
+		surface.textAlign(surface.LEFT);
 		String str = "Back";
 		float w = surface.textWidth(str);
 		surface.text(str, back.x+back.width/2-w/2, back.y+back.height/2);
+		surface.fill(255);
+		surface.rect(menu.x, menu.y, menu.width, menu.height, 10, 10, 10, 10);
+		surface.fill(0);
+		surface.textAlign(surface.LEFT);
+		str = "Main Menu";
+		w = surface.textWidth(str);
+		surface.text(str, menu.x+menu.width/2-w/2, menu.y+menu.height/2);
+		
+		
 		
 		surface.popStyle();
 
@@ -53,5 +65,7 @@ public class Pause extends Screen {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (back.contains(p))
 			surface.switchScreen(ScreenSwitcher.GAME);
+		if(menu.contains(p))
+			surface.switchScreen(ScreenSwitcher.MENU);
 	}
 }
