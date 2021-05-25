@@ -136,6 +136,27 @@ public class Level {
 			obstacles.add(new Wall(475, 50, 25, 300, 0));
 			obstacles.add(new Wall(350, 50, 25, 225, 0));
 			obstacles.add(new Wall(350, 25, 150, 25, 0));
+		} else if(level == 7)
+		{
+			start = new Point(100, 450);
+			end =  new EndPoint(100,150);
+			obstacles.add(new Sludge(700,100,80,170));
+			obstacles.add(new Booster(570,300,250,250));
+			obstacles.add(new Wall(0,250,600,50,0));
+			obstacles.add(new Wall(0,50,800,50,0));
+			obstacles.add(new Wall(0,50,50,600,0));
+			obstacles.add(new Wall(0,550,800,50,0));
+			obstacles.add(new Wall(650,300,25,100,Math.PI/4-Math.PI/10-Math.PI/10));
+			
+			obstacles.add(new Spike(720,500,15,Math.PI/2));
+			obstacles.add(new Wall(775,100,25,350,0));
+			obstacles.add(new Wall(600,400,100,25,0));
+			obstacles.add(new Wall(680,100,20,150,0));
+			obstacles.add(new Spike(50,100,63,0));
+			obstacles.add(new Spike(50,240,55,Math.PI));
+			
+			
+		
 		}
 		else if(level == 6) {
 			start = new Point(100, 110);

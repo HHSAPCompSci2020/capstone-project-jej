@@ -4,7 +4,7 @@ import java.awt.Rectangle;
 
 import processing.core.PImage;
 /**
- * @author APCS Demos 2021, modified for own use by Jensen
+ * @author APCS Demos 2021, modified for own use by Jensen and Jim
  */
 public class Menu extends Screen {
 	private DrawingSurface surface;
@@ -19,13 +19,17 @@ public class Menu extends Screen {
 		start = new Rectangle(800/2-100,600/2-100,150,50);
 		howToPlay =  new Rectangle(800/2-100,600/2,150,50);
 	}
-	
+	/**
+	 * sets up the image
+	 */
 	public void setup()
 	{
 		title = surface.loadImage("gravityball1.png");
 		background = surface.loadImage("nature.jpg");
 	}
-	
+	/**
+	 * draws the screen
+	 */
 	public void draw() {
 		surface.pushStyle();
 		
@@ -50,7 +54,9 @@ public class Menu extends Screen {
 		
 		surface.popStyle();
 	}
-	
+	/**
+	 * detects the buttons
+	 */
 	public void mousePressed() {
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
 		if (start.contains(p))

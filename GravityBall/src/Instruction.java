@@ -6,7 +6,7 @@ import javax.xml.stream.events.StartDocument;
 
 import processing.core.PImage;
 /**
- * instructions
+ * This class is the instructions screen
  * @author Siyi Ji
  *
  */
@@ -19,12 +19,16 @@ public class Instruction extends Screen {
 		this.surface = surface;
 		back = new Rectangle(0,550,100,50);
 	}
-	
+	/**
+	 * sets up the images used on the screen
+	 */
 	public void setup()
 	{
 		backGround = surface.loadImage("nature2.jpg");
 	}
-	
+	/**
+	 * draws the screen
+	 */
 	public void draw() {
 		surface.pushStyle();
 
@@ -48,7 +52,9 @@ public class Instruction extends Screen {
 
 		
 	}
-	
+	/**
+	 * detects the buttons 
+	 */
 	public void mousePressed()
 	{
 		Point p = surface.actualCoordinatesToAssumed(new Point(surface.mouseX,surface.mouseY));
