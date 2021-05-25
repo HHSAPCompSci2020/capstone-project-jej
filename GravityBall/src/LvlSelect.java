@@ -21,8 +21,7 @@ public class LvlSelect extends Screen
 		lvl4 = new Rectangle(400,200,50,50);
 		lvl5 = new Rectangle(500,200,50,50);
 		lvl6 = new Rectangle(600,200,50,50);
-		lvl7 = new Rectangle(300,300,50,50);
-		lvl8 = new Rectangle(400,300,50,50);
+		lvl7 = new Rectangle(350,300,50,50);
 	}
 	/**
 	 * sets up the images used on the screen
@@ -90,11 +89,11 @@ public class LvlSelect extends Screen
 		w = surface.textWidth(str);
 		surface.text(str, lvl7.x+lvl7.width/2-w/2, lvl7.y+lvl7.height/2);
 		surface.fill(255);
-		surface.rect(lvl8.x, lvl8.y, lvl8.width, lvl8.height, 10, 10, 10, 10);
+		/*surface.rect(lvl8.x, lvl8.y, lvl8.width, lvl8.height, 10, 10, 10, 10);
 		surface.fill(0);
 		str = "8";
 		w = surface.textWidth(str);
-		surface.text(str, lvl8.x+lvl8.width/2-w/2, lvl8.y+lvl8.height/2);
+		surface.text(str, lvl8.x+lvl8.width/2-w/2, lvl8.y+lvl8.height/2);*/
 		
 		
 		

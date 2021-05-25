@@ -13,7 +13,7 @@ import java.awt.Rectangle;
 public class Game extends Screen {
 	private DrawingSurface surface;
 	private Level level;
-	private static final int MAX_LEVEL = 8;
+	private static final int MAX_LEVEL = 7;
 	private int levelNumber;
 	private Player player;
 	private Rectangle pause;
@@ -142,7 +142,6 @@ public class Game extends Screen {
 			dir = -1;
 		}
 		
-		changeBackground(surface, bg, dir);
 		
 //		if(g == Gravity.LEFT) {
 //			player.accelerate(-GRAVSTR, 0);
@@ -163,6 +162,7 @@ public class Game extends Screen {
 		
 		player.draw(surface);
 		level.draw(surface);
+		changeBackground(surface, bg, dir);
 		
 
 		if (surface.isPressed(KeyEvent.VK_SPACE)) {
@@ -197,6 +197,7 @@ public class Game extends Screen {
 		surface.push();
 		surface.fill(c.getRed(), c.getGreen(), c.getBlue(), 128);
 		surface.stroke(0, 0, 0, 0);
+		surface.translate(300, 200);
 		if(dir == 0) {
 			surface.quad(400, 300, 350, 350, 400, 225, 450, 350);
 		} else if(dir == 1) {
